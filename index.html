@@ -3,553 +3,818 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>crochetbyneha — handmade crochet, made to keep</title>
+<title>Crochetbyneh.a — Artisan Crochet Studio</title>
+<meta name="description" content="Handmade crochet wearables, bags, keychains and bouquets by Neha. Every piece made to order, one loop at a time.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Work+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --wool:#EDE6D6;
-    --wool-deep:#E1D6BE;
-    --card:#FAF7F0;
-    --ink:#2B2620;
-    --ink-soft:#5b5346;
-    --berry:#A23B5C;
-    --berry-deep:#7c2b46;
-    --moss:#6B7B4F;
-    --marigold:#DE9F32;
-    --sky:#6E8FA3;
-    --line: rgba(43,38,32,0.14);
+    --canvas:#FAF3E9;
+    --canvas-dim:#F1E7D8;
+    --ink:#2A2320;
+    --ink-soft:#5B5049;
+    --rose:#C17D86;
+    --rose-deep:#A9606B;
+    --gold:#C6952F;
+    --sage:#75825F;
+    --rust:#A85A3B;
+    --card:#FFFDF9;
+    --line: rgba(42,35,32,0.12);
+    --radius: 18px;
+    --max: 1180px;
   }
+
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
     margin:0;
-    background:var(--wool);
+    background:var(--canvas);
     color:var(--ink);
     font-family:'Work Sans', sans-serif;
     font-weight:400;
     line-height:1.55;
     -webkit-font-smoothing:antialiased;
   }
-  h1,h2,h3,.display{
-    font-family:'Fraunces', serif;
-    font-weight:500;
-    letter-spacing:-0.01em;
-    margin:0;
-  }
-  a{color:inherit;}
   img{max-width:100%;display:block;}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 28px;}
+  a{color:inherit;}
 
-  /* thread signature element */
-  #thread-svg{
-    position:absolute; top:0; left:0; width:100%; height:100%;
-    pointer-events:none; z-index:0;
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    line-height:1.05;
+    margin:0;
+    letter-spacing:-0.01em;
   }
-  #thread-path{
-    fill:none; stroke:var(--berry); stroke-width:2;
-    stroke-dasharray:6000; stroke-dashoffset:6000;
-    opacity:0.5;
-    transition:stroke-dashoffset 0.1s linear;
-  }
-  .stitch-loop{ opacity:0.55; }
 
-  /* header */
-  header{
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--rose-deep);
+  }
+
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 24px;}
+
+  @media(min-width:768px){ .wrap{padding:0 40px;} }
+
+  /* ---------- top order bar ---------- */
+  .orderbar{
+    background:var(--ink);
+    color:var(--canvas);
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.02em;
+  }
+  .orderbar .wrap{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 20px;
+    justify-content:center;
+    padding-top:9px;
+    padding-bottom:9px;
+    text-align:center;
+  }
+  .orderbar a{text-decoration:none; color:var(--canvas); border-bottom:1px solid rgba(250,243,233,0.4);}
+  .orderbar a:hover{border-color:var(--canvas);}
+
+  /* ---------- header ---------- */
+  header.site{
     position:sticky; top:0; z-index:40;
-    background:rgba(237,230,214,0.92);
+    background:rgba(250,243,233,0.92);
     backdrop-filter:blur(6px);
     border-bottom:1px solid var(--line);
   }
   .nav{
     display:flex; align-items:center; justify-content:space-between;
-    padding:18px 0;
+    padding:14px 0;
   }
-  .logo{
-    font-family:'Fraunces', serif; font-weight:600; font-size:1.35rem;
-    letter-spacing:-0.01em;
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.15rem;
   }
-  .logo em{ color:var(--berry); font-style:italic; font-weight:500; }
-  nav ul{
-    list-style:none; display:flex; gap:32px; margin:0; padding:0;
+  .brand .mark{
+    width:34px;height:34px;border-radius:50%;
+    background:var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
   }
-  nav a{
-    text-decoration:none; font-size:0.92rem; letter-spacing:0.02em;
-    color:var(--ink-soft); position:relative; padding-bottom:2px;
+  .brand .mark svg{width:18px;height:18px;}
+  .navlinks{
+    display:none;
+    gap:26px;
+    font-size:0.88rem;
+    color:var(--ink-soft);
   }
-  nav a:hover{ color:var(--berry); }
-  .nav-toggle{ display:none; background:none; border:none; font-size:1.4rem; cursor:pointer; color:var(--ink); }
+  .navlinks a{text-decoration:none;}
+  .navlinks a:hover{color:var(--ink);}
+  @media(min-width:820px){ .navlinks{display:flex;} }
 
-  /* hero */
+  .navcta{
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    text-decoration:none;
+    background:var(--rose);
+    color:#fff;
+    padding:9px 16px;
+    border-radius:100px;
+    white-space:nowrap;
+  }
+
+  /* ---------- signature thread rail (desktop) ---------- */
+  .page{position:relative;}
+  .thread-rail{
+    display:none;
+    position:absolute;
+    top:0; bottom:0; left:0;
+    width:26px;
+  }
+  @media(min-width:1000px){
+    .thread-rail{display:block;}
+    .page{padding-left:26px;}
+  }
+
+  /* scalloped stitch divider used between sections on all sizes */
+  .stitch-divider{
+    height:14px;
+    width:100%;
+    background-repeat:repeat-x;
+    background-size:28px 14px;
+    background-position:center;
+    opacity:0.55;
+  }
+
+  /* ---------- hero ---------- */
   .hero{
-    position:relative; overflow:hidden;
-    padding:96px 0 88px;
+    padding:56px 0 60px;
+    position:relative;
+    overflow:hidden;
   }
-  .hero-inner{
-    position:relative; z-index:1;
-    display:grid; grid-template-columns:1.15fr 0.85fr; gap:56px; align-items:center;
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:36px;
+    align-items:center;
   }
-  .eyebrow{
-    display:inline-flex; align-items:center; gap:8px;
-    font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase;
-    color:var(--berry-deep); font-weight:600; margin-bottom:22px;
-  }
-  .eyebrow::before{
-    content:''; width:22px; height:1.5px; background:var(--berry-deep);
-    display:inline-block;
+  @media(min-width:900px){
+    .hero .wrap{grid-template-columns:1.1fr 0.9fr; gap:20px;}
   }
   .hero h1{
-    font-size:clamp(2.4rem, 5vw, 3.6rem);
-    line-height:1.06;
-    max-width:11ch;
+    font-size:clamp(2.3rem, 6vw, 3.6rem);
+    margin:14px 0 18px;
   }
-  .hero h1 i{ font-style:italic; color:var(--berry); font-weight:500;}
-  .hero p.lede{
-    margin-top:22px; max-width:42ch; font-size:1.08rem; color:var(--ink-soft);
+  .hero h1 em{
+    font-style:italic;
+    font-weight:500;
+    color:var(--rose-deep);
   }
-  .hero-ctas{ margin-top:34px; display:flex; gap:14px; flex-wrap:wrap; }
+  .hero p.lead{
+    font-size:1.05rem;
+    color:var(--ink-soft);
+    max-width:44ch;
+    margin-bottom:26px;
+  }
+  .hero-ctas{display:flex; flex-wrap:wrap; gap:12px;}
   .btn{
     display:inline-flex; align-items:center; gap:8px;
-    padding:13px 26px; border-radius:2px; text-decoration:none;
-    font-size:0.9rem; font-weight:500; letter-spacing:0.01em;
-    border:1px solid transparent; cursor:pointer;
-    transition:transform 0.15s ease, background 0.15s ease;
+    font-family:'Work Sans', sans-serif;
+    font-weight:500;
+    font-size:0.92rem;
+    padding:13px 22px;
+    border-radius:100px;
+    text-decoration:none;
+    border:1px solid transparent;
+    cursor:pointer;
   }
-  .btn-primary{ background:var(--berry); color:var(--card); }
-  .btn-primary:hover{ background:var(--berry-deep); transform:translateY(-1px); }
-  .btn-ghost{ border-color:var(--ink); color:var(--ink); background:transparent; }
-  .btn-ghost:hover{ background:var(--ink); color:var(--wool); }
+  .btn-primary{background:var(--ink); color:var(--canvas);}
+  .btn-primary:hover{background:var(--rose-deep);}
+  .btn-ghost{border-color:var(--ink); color:var(--ink);}
+  .btn-ghost:hover{background:var(--ink); color:var(--canvas);}
 
-  .swatch-frame{
-    position:relative; aspect-ratio:4/5;
+  .hero-art{
+    position:relative;
+    aspect-ratio:1/1;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .hero-art svg{width:100%; height:100%;}
+
+  /* ---------- about / makers ---------- */
+  .about{
+    padding:64px 0;
+    background:var(--canvas-dim);
+  }
+  .about .wrap{
+    display:grid; gap:36px;
+    grid-template-columns:1fr;
+  }
+  @media(min-width:860px){
+    .about .wrap{grid-template-columns: 0.9fr 1.1fr; align-items:start;}
+  }
+  .about h2{font-size:clamp(1.7rem,3.4vw,2.3rem); margin-bottom:16px;}
+  .about p{color:var(--ink-soft); max-width:56ch;}
+  .makers{
+    display:grid; gap:16px;
+    grid-template-columns:1fr;
+  }
+  @media(min-width:520px){ .makers{grid-template-columns:1fr 1fr;} }
+  .maker-card{
     background:var(--card);
     border:1px solid var(--line);
-    display:flex; align-items:center; justify-content:center;
-    padding:28px;
+    border-radius:var(--radius);
+    padding:22px;
   }
-  .swatch-frame svg{ width:100%; height:100%; }
-  .swatch-caption{
-    position:absolute; bottom:-14px; left:18px;
-    background:var(--marigold); color:var(--ink);
-    font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase;
-    padding:6px 12px; font-weight:600;
+  .maker-card .role{
+    font-family:'Space Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--sage);
+    display:block;
+    margin-bottom:8px;
+  }
+  .maker-card h3{font-size:1.15rem; margin-bottom:8px;}
+  .maker-card ul{margin:0; padding-left:18px; color:var(--ink-soft); font-size:0.92rem;}
+  .maker-card li{margin-bottom:4px;}
+
+  .notice{
+    margin-top:28px;
+    border:1px dashed var(--rose-deep);
+    border-radius:14px;
+    padding:16px 18px;
+    font-size:0.88rem;
+    color:var(--ink-soft);
+    background:rgba(193,125,134,0.06);
+  }
+  .notice strong{color:var(--ink);}
+
+  /* ---------- shop ---------- */
+  .shop{padding:64px 0 20px;}
+  .shop-head{
+    display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between;
+    gap:16px; margin-bottom:34px;
+  }
+  .shop-head h2{font-size:clamp(1.7rem,3.4vw,2.3rem);}
+
+  .category{margin-bottom:56px;}
+  .category h3{
+    font-size:1.05rem;
+    font-family:'Space Mono', monospace;
+    font-weight:400;
+    letter-spacing:0.02em;
+    display:flex; align-items:center; gap:12px;
+    color:var(--ink);
+    margin-bottom:22px;
+  }
+  .category h3::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--line);
   }
 
-  /* section framing */
-  section{ position:relative; padding:76px 0; }
-  .section-alt{ background:var(--wool-deep); }
-  .kicker{
-    font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase;
-    color:var(--moss); font-weight:600; margin-bottom:10px;
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
   }
-  .section-head{
-    display:flex; justify-content:space-between; align-items:flex-end;
-    gap:24px; margin-bottom:44px; flex-wrap:wrap;
-  }
-  .section-head h2{ font-size:clamp(1.7rem,3vw,2.3rem); max-width:16ch; }
-  .section-head p{ color:var(--ink-soft); max-width:34ch; font-size:0.98rem; }
+  @media(min-width:640px){ .grid{grid-template-columns:repeat(3,1fr); gap:22px;} }
+  @media(min-width:980px){ .grid{grid-template-columns:repeat(4,1fr);} }
 
-  /* chain divider */
-  .chain-divider{ width:100%; height:22px; margin:0 auto; }
-
-  /* shop grid */
-  .shop-grid{
-    display:grid; grid-template-columns:repeat(3, 1fr); gap:28px;
-  }
   .card{
-    background:var(--card); border:1px solid var(--line);
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
     display:flex; flex-direction:column;
+    opacity:0; transform:translateY(16px);
+    transition:opacity .6s ease, transform .6s ease;
   }
-  .card-art{
-    aspect-ratio:1/1; display:flex; align-items:center; justify-content:center;
-    background:var(--wool); border-bottom:1px solid var(--line);
-  }
-  .card-art svg{ width:62%; height:62%; }
-  .card-body{ padding:20px 22px 24px; display:flex; flex-direction:column; gap:6px; flex:1; }
-  .card-body h3{ font-size:1.12rem; font-weight:500; }
-  .card-tag{ font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--berry); font-weight:600; }
-  .card-desc{ color:var(--ink-soft); font-size:0.92rem; flex:1; }
-  .card-foot{
-    display:flex; align-items:center; justify-content:space-between;
-    margin-top:14px; padding-top:14px; border-top:1px dashed var(--line);
-  }
-  .price{ font-family:'Fraunces', serif; font-size:1.1rem; }
-  .inquire{
-    font-size:0.82rem; text-decoration:none; color:var(--ink);
-    border-bottom:1px solid var(--berry); padding-bottom:1px;
-  }
-  .inquire:hover{ color:var(--berry); }
+  .card.in-view{opacity:1; transform:translateY(0);}
 
-  /* about */
-  .about-grid{
-    display:grid; grid-template-columns:0.8fr 1.2fr; gap:64px; align-items:center;
-  }
-  .about-frame{
-    aspect-ratio:3/4; background:var(--card); border:1px solid var(--line);
-    display:flex; align-items:center; justify-content:center; padding:30px;
-  }
-  .about-frame svg{ width:100%; height:100%; }
-  .about-copy p{ color:var(--ink-soft); margin:0 0 16px; font-size:1.02rem; }
-  .about-copy p:last-child{ margin-bottom:0; }
-  .signature{
-    margin-top:22px; font-family:'Fraunces', serif; font-style:italic; font-size:1.3rem; color:var(--berry-deep);
+  .card-media{position:relative; aspect-ratio:1/1; overflow:hidden; background:var(--canvas-dim);}
+  .card-media img{width:100%; height:100%; object-fit:cover; transition:transform .5s ease;}
+  .card:hover .card-media img{transform:scale(1.05);}
+
+  .badge{
+    position:absolute; top:10px; right:10px;
+    background:var(--rose); color:#fff;
+    font-family:'Space Mono', monospace;
+    font-size:0.68rem;
+    padding:4px 8px;
+    border-radius:100px;
+    transform:rotate(-3deg);
+    box-shadow:0 2px 6px rgba(0,0,0,0.12);
   }
 
-  /* process */
-  .process{
-    display:grid; grid-template-columns:repeat(5,1fr); gap:20px;
-    counter-reset: step;
+  .card-body{padding:14px 14px 16px; display:flex; flex-direction:column; gap:8px; flex:1;}
+  .card-body h4{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:1rem;
+    margin:0;
   }
-  .step{
-    background:var(--card); border:1px solid var(--line); padding:22px 18px;
-    position:relative;
-  }
-  .step .num{
-    font-family:'Fraunces', serif; font-style:italic; color:var(--berry);
-    font-size:1.6rem; display:block; margin-bottom:14px;
-  }
-  .step h4{ font-size:0.98rem; font-weight:500; margin-bottom:6px; }
-  .step p{ font-size:0.85rem; color:var(--ink-soft); margin:0; }
+  .price-row{display:flex; align-items:baseline; gap:8px; font-family:'Space Mono', monospace;}
+  .price-now{font-size:1rem; font-weight:700;}
+  .price-was{font-size:0.78rem; color:var(--ink-soft); text-decoration:line-through;}
 
-  /* testimonials */
-  .testi-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
-  .testi{
-    background:var(--card); border:1px solid var(--line); padding:26px;
+  .card-cta{
+    margin-top:auto;
+    display:inline-flex; align-items:center; justify-content:center; gap:6px;
+    font-size:0.78rem;
+    font-weight:500;
+    text-decoration:none;
+    padding:9px 12px;
+    border-radius:100px;
+    border:1px solid var(--ink);
+    color:var(--ink);
   }
-  .testi p{ font-size:0.98rem; color:var(--ink-soft); font-style:italic; }
-  .testi .who{ margin-top:14px; font-size:0.85rem; font-weight:500; font-style:normal; color:var(--ink); }
+  .card-cta:hover{background:var(--ink); color:var(--canvas);}
+  .card-cta svg{width:13px;height:13px;}
 
-  /* contact / footer */
+  /* ---------- why / policies ---------- */
+  .why{padding:56px 0; }
+  .why-grid{
+    display:grid; gap:18px;
+    grid-template-columns:1fr;
+  }
+  @media(min-width:760px){ .why-grid{grid-template-columns:repeat(3,1fr);} }
+  .why-item{
+    padding:22px;
+    border-radius:var(--radius);
+    background:var(--card);
+    border:1px solid var(--line);
+  }
+  .why-item .num{
+    font-family:'Space Mono', monospace;
+    color:var(--gold);
+    font-size:0.78rem;
+    margin-bottom:10px;
+    display:block;
+  }
+  .why-item h4{font-family:'Fraunces', serif; font-size:1.05rem; margin-bottom:6px;}
+  .why-item p{margin:0; color:var(--ink-soft); font-size:0.9rem;}
+
+  .policies{padding:20px 0 56px;}
+  .policy-grid{display:grid; gap:16px; grid-template-columns:1fr;}
+  @media(min-width:640px){ .policy-grid{grid-template-columns:1fr 1fr;} }
+  .policy-card{
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:20px 22px;
+    background:var(--canvas-dim);
+    font-size:0.88rem;
+    color:var(--ink-soft);
+  }
+  .policy-card h4{font-family:'Fraunces', serif; color:var(--ink); font-size:1rem; margin-bottom:8px;}
+
+  /* ---------- footer ---------- */
   footer{
-    background:var(--ink); color:var(--wool); padding:64px 0 32px;
+    background:var(--ink);
+    color:var(--canvas);
+    padding:52px 0 26px;
   }
-  .footer-grid{
-    display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:40px;
-    padding-bottom:44px; border-bottom:1px solid rgba(237,230,214,0.15);
+  .foot-grid{
+    display:grid; gap:32px;
+    grid-template-columns:1fr;
+    padding-bottom:32px;
+    border-bottom:1px solid rgba(250,243,233,0.15);
   }
-  footer h3{ color:var(--wool); font-size:1.3rem; margin-bottom:12px; }
-  footer p{ color:rgba(237,230,214,0.7); font-size:0.94rem; max-width:36ch; }
+  @media(min-width:760px){ .foot-grid{grid-template-columns:1.2fr 1fr 1fr;} }
   footer h5{
-    font-size:0.75rem; text-transform:uppercase; letter-spacing:0.12em;
-    color:var(--marigold); margin:0 0 14px; font-weight:600;
+    font-family:'Space Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--rose);
+    margin-bottom:14px;
   }
-  footer ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
-  footer a{ text-decoration:none; color:rgba(237,230,214,0.8); font-size:0.92rem; }
-  footer a:hover{ color:var(--marigold); }
+  footer .foot-brand{font-family:'Fraunces', serif; font-size:1.4rem; margin-bottom:10px;}
+  footer p{color:rgba(250,243,233,0.7); font-size:0.9rem; max-width:38ch;}
+  footer ul{list-style:none; margin:0; padding:0;}
+  footer li{margin-bottom:9px; font-size:0.9rem;}
+  footer a{text-decoration:none; color:rgba(250,243,233,0.85);}
+  footer a:hover{color:#fff;}
   .foot-bottom{
-    display:flex; justify-content:space-between; padding-top:24px;
-    font-size:0.8rem; color:rgba(237,230,214,0.45); flex-wrap:wrap; gap:10px;
+    padding-top:22px;
+    display:flex; flex-wrap:wrap; gap:12px;
+    justify-content:space-between;
+    font-size:0.76rem;
+    color:rgba(250,243,233,0.55);
+    font-family:'Space Mono', monospace;
   }
 
-  @media (max-width:860px){
-    nav ul{
-      position:fixed; top:64px; left:0; right:0; background:var(--wool);
-      flex-direction:column; gap:0; border-bottom:1px solid var(--line);
-      transform:translateY(-120%); transition:transform 0.25s ease; padding:8px 28px 18px;
-    }
-    nav ul.open{ transform:translateY(0); }
-    nav li{ border-top:1px solid var(--line); }
-    nav a{ display:block; padding:14px 0; }
-    .nav-toggle{ display:block; }
-    .hero-inner{ grid-template-columns:1fr; }
-    .swatch-frame{ order:-1; max-width:320px; margin:0 auto; }
-    .shop-grid{ grid-template-columns:repeat(2,1fr); }
-    .about-grid{ grid-template-columns:1fr; }
-    .about-frame{ max-width:280px; margin:0 auto; }
-    .process{ grid-template-columns:repeat(2,1fr); }
-    .testi-grid{ grid-template-columns:1fr; }
-    .footer-grid{ grid-template-columns:1fr; gap:28px; }
+  .social-row{display:flex; gap:10px; margin-top:16px;}
+  .social-row a{
+    width:34px;height:34px;border-radius:50%;
+    border:1px solid rgba(250,243,233,0.3);
+    display:flex; align-items:center; justify-content:center;
   }
+  .social-row a:hover{border-color:#fff;}
+  .social-row svg{width:15px;height:15px;}
+
   @media (prefers-reduced-motion: reduce){
-    html{ scroll-behavior:auto; }
-    #thread-path{ transition:none; }
+    *{animation:none !important; transition:none !important;}
   }
 </style>
 </head>
 <body>
 
-<svg id="thread-svg" aria-hidden="true">
-  <path id="thread-path" d=""></path>
-</svg>
+<div class="orderbar">
+  <div class="wrap">
+    <span>Call or WhatsApp to order &nbsp;·&nbsp;
+      <a href="https://wa.me/9763959028" target="_blank" rel="noopener">WhatsApp 9763959028</a>
+      &nbsp;·&nbsp;
+      <a href="tel:9769283027">Hotline 9769283027</a>
+    </span>
+  </div>
+</div>
 
-<header>
+<header class="site">
   <div class="wrap nav">
-    <div class="logo">crochet<em>by</em>neha</div>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
-    <ul id="navList">
-      <li><a href="#shop">Shop</a></li>
-      <li><a href="#custom">Custom Orders</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <a href="#top" class="brand">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#FAF3E9" stroke-width="1.6" stroke-linecap="round">
+          <path d="M4 12c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8"/>
+          <circle cx="4" cy="12" r="1.4" fill="#FAF3E9" stroke="none"/>
+        </svg>
+      </span>
+      Crochetbyneh.a
+    </a>
+    <nav class="navlinks">
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#why">Why us</a>
+      <a href="#policies">Policies</a>
+    </nav>
+    <a class="navcta" href="#shop">Browse pieces</a>
   </div>
 </header>
 
+<div class="page" id="top">
+<div class="thread-rail" aria-hidden="true">
+  <svg width="100%" height="100%" preserveAspectRatio="none">
+    <defs>
+      <pattern id="chainV" width="26" height="46" patternUnits="userSpaceOnUse">
+        <ellipse cx="13" cy="11" rx="8" ry="11" fill="none" stroke="#C17D86" stroke-width="2.2" opacity="0.55"/>
+        <ellipse cx="13" cy="34" rx="8" ry="11" fill="none" stroke="#C17D86" stroke-width="2.2" opacity="0.55"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#chainV)"/>
+  </svg>
+</div>
+
+<!-- ================= HERO ================= -->
 <section class="hero">
-  <div class="wrap hero-inner">
+  <div class="wrap">
     <div>
-      <span class="eyebrow">Handmade in small batches</span>
-      <h1>Every piece<br>starts as <i>one</i><br>loop of yarn.</h1>
-      <p class="lede">crochetbyneha is a one-woman studio making amigurumi, blankets, bags and accessories — hooked by hand, stitch by stitch, no two exactly alike.</p>
+      <span class="eyebrow">Artisan Crochet Studio</span>
+      <h1>Elegance in<br><em>every loop.</em></h1>
+      <p class="lead">Handmade wearables and home accents, hooked one stitch at a time by Neha — nothing off a shelf, nothing mass-made.</p>
       <div class="hero-ctas">
-        <a href="#shop" class="btn btn-primary">Browse the shop</a>
-        <a href="#custom" class="btn btn-ghost">Request a custom piece</a>
+        <a class="btn btn-primary" href="#shop">Browse the collection</a>
+        <a class="btn btn-ghost" href="https://wa.me/9763959028" target="_blank" rel="noopener">Order on WhatsApp</a>
       </div>
     </div>
-    <div class="swatch-frame">
-      <svg viewBox="0 0 200 200" fill="none">
-        <circle cx="100" cy="100" r="92" fill="#F0C93B" opacity="0.15"/>
-        <g stroke="#A23B5C" stroke-width="2.4" fill="none" stroke-linecap="round">
-          <path d="M40 60 Q60 40 80 60 T120 60 T160 60" />
-          <path d="M40 90 Q60 70 80 90 T120 90 T160 90" />
-          <path d="M40 120 Q60 100 80 120 T120 120 T160 120" />
-          <path d="M40 150 Q60 130 80 150 T120 150 T160 150" />
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 400 400">
+        <g fill="none" stroke="#2A2320" stroke-width="1.3" opacity="0.85">
+          <circle cx="200" cy="200" r="150" stroke-dasharray="4 10"/>
         </g>
-        <g stroke="#6B7B4F" stroke-width="2" fill="none" opacity="0.6">
-          <circle cx="55" cy="60" r="3"/><circle cx="95" cy="60" r="3"/><circle cx="135" cy="60" r="3"/>
+        <g fill="none" stroke="#C17D86" stroke-width="2.4">
+          <path d="M200 90 C 260 90 300 130 300 190 C 300 250 260 290 200 290 C 140 290 100 250 100 190 C 100 140 132 105 178 95">
+            <animate attributeName="stroke-dasharray" from="0,900" to="900,0" dur="2.4s" fill="freeze"/>
+          </path>
         </g>
-      </svg>
-      <span class="swatch-caption">Gauge swatch, cotton yarn</span>
-    </div>
-  </div>
-</section>
-
-<svg class="chain-divider" viewBox="0 0 1200 22" preserveAspectRatio="none">
-  <path d="M0 11 Q15 0 30 11 T60 11 T90 11 T120 11 T150 11 T180 11 T210 11 T240 11 T270 11 T300 11 T330 11 T360 11 T390 11 T420 11 T450 11 T480 11 T510 11 T540 11 T570 11 T600 11 T630 11 T660 11 T690 11 T720 11 T750 11 T780 11 T810 11 T840 11 T870 11 T900 11 T930 11 T960 11 T990 11 T1020 11 T1050 11 T1080 11 T1110 11 T1140 11 T1170 11 T1200 11"
-    fill="none" stroke="#A23B5C" stroke-width="2" opacity="0.4"/>
-</svg>
-
-<section id="shop">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <div class="kicker">The Shop</div>
-        <h2>Made to order, made to last</h2>
-      </div>
-      <p>Everything is hooked to order in the colors shown or a palette of your choice. Message to check current turnaround time.</p>
-    </div>
-
-    <div class="shop-grid">
-
-      <div class="card">
-        <div class="card-art">
-          <svg viewBox="0 0 100 100"><circle cx="50" cy="38" r="20" fill="#DE9F32"/><circle cx="38" cy="20" r="7" fill="#DE9F32"/><circle cx="62" cy="20" r="7" fill="#DE9F32"/><ellipse cx="50" cy="72" rx="22" ry="18" fill="#DE9F32"/><circle cx="43" cy="35" r="2.2" fill="#2B2620"/><circle cx="57" cy="35" r="2.2" fill="#2B2620"/><path d="M45 44 Q50 48 55 44" stroke="#2B2620" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
-        </div>
-        <div class="card-body">
-          <span class="card-tag">Amigurumi</span>
-          <h3>Fenna the Fox</h3>
-          <p class="card-desc">A soft cotton fox, hand-stuffed and stitched, roughly 22cm tall. Great as a keepsake or first toy.</p>
-          <div class="card-foot"><span class="price">$32</span><a class="inquire" href="#contact">Inquire →</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-art">
-          <svg viewBox="0 0 100 100">
-            <rect x="15" y="15" width="30" height="30" fill="#A23B5C"/>
-            <rect x="55" y="15" width="30" height="30" fill="#6B7B4F"/>
-            <rect x="15" y="55" width="30" height="30" fill="#6E8FA3"/>
-            <rect x="55" y="55" width="30" height="30" fill="#DE9F32"/>
-          </svg>
-        </div>
-        <div class="card-body">
-          <span class="card-tag">Home</span>
-          <h3>Granny Square Throw</h3>
-          <p class="card-desc">A patchwork throw blanket, mixed jewel-toned squares joined by hand. Approx. 120 x 150cm.</p>
-          <div class="card-foot"><span class="price">$145</span><a class="inquire" href="#contact">Inquire →</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-art">
-          <svg viewBox="0 0 100 100"><path d="M25 40 h50 l-6 45 a4 4 0 0 1 -4 4 h-30 a4 4 0 0 1 -4 -4 Z" fill="#6B7B4F"/><path d="M35 40 v-8 a15 15 0 0 1 30 0 v8" fill="none" stroke="#6B7B4F" stroke-width="4"/></svg>
-        </div>
-        <div class="card-body">
-          <span class="card-tag">Bags</span>
-          <h3>Market Tote</h3>
-          <p class="card-desc">Sturdy cotton rope tote for markets and groceries — holds its shape, holds a lot.</p>
-          <div class="card-foot"><span class="price">$38</span><a class="inquire" href="#contact">Inquire →</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-art">
-          <svg viewBox="0 0 100 100">
-            <circle cx="30" cy="30" r="16" fill="#6E8FA3"/><circle cx="70" cy="30" r="16" fill="#DE9F32"/>
-            <circle cx="30" cy="70" r="16" fill="#A23B5C"/><circle cx="70" cy="70" r="16" fill="#6B7B4F"/>
-          </svg>
-        </div>
-        <div class="card-body">
-          <span class="card-tag">Home</span>
-          <h3>Scallop Coasters (Set of 4)</h3>
-          <p class="card-desc">Scallop-edged coasters in mixed colors, cotton yarn, cork backing available on request.</p>
-          <div class="card-foot"><span class="price">$18</span><a class="inquire" href="#contact">Inquire →</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-art">
-          <svg viewBox="0 0 100 100"><path d="M50 15 a28 28 0 0 1 28 28 v10 a28 6 0 0 1 -56 0 v-10 a28 28 0 0 1 28 -28 Z" fill="#A23B5C"/><rect x="30" y="52" width="40" height="10" fill="#7c2b46"/></svg>
-        </div>
-        <div class="card-body">
-          <span class="card-tag">Accessories</span>
-          <h3>Chunky Rib Beanie</h3>
-          <p class="card-desc">A slouchy ribbed beanie in a soft wool blend, one size fits most.</p>
-          <div class="card-foot"><span class="price">$26</span><a class="inquire" href="#contact">Inquire →</a></div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-art">
-          <svg viewBox="0 0 100 100"><ellipse cx="35" cy="55" rx="14" ry="10" fill="#DE9F32"/><ellipse cx="65" cy="55" rx="14" ry="10" fill="#6E8FA3"/><rect x="26" y="40" width="18" height="16" rx="6" fill="#DE9F32"/><rect x="56" y="40" width="18" height="16" rx="6" fill="#6E8FA3"/></svg>
-        </div>
-        <div class="card-body">
-          <span class="card-tag">Baby</span>
-          <h3>Baby Booties Set</h3>
-          <p class="card-desc">Soft baby booties in a cotton-merino blend, available newborn to 12 months.</p>
-          <div class="card-foot"><span class="price">$22</span><a class="inquire" href="#contact">Inquire →</a></div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section id="custom" class="section-alt">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <div class="kicker">Custom Orders</div>
-        <h2>Have something in mind? Let's make it.</h2>
-      </div>
-      <p>Most custom pieces are ready in 2–4 weeks depending on size and queue. Here's how it works, start to finish.</p>
-    </div>
-    <div class="process">
-      <div class="step"><span class="num">01</span><h4>Send your idea</h4><p>A photo, color, or rough sketch is enough to start the conversation.</p></div>
-      <div class="step"><span class="num">02</span><h4>Get a quote</h4><p>You'll get a price and estimated timeline before anything is booked.</p></div>
-      <div class="step"><span class="num">03</span><h4>Approve a swatch</h4><p>A small yarn swatch confirms color and texture before the full piece begins.</p></div>
-      <div class="step"><span class="num">04</span><h4>It's hooked by hand</h4><p>Every stitch is made one at a time — you'll get progress photos along the way.</p></div>
-      <div class="step"><span class="num">05</span><h4>Packed & shipped</h4><p>Wrapped with care and shipped with tracking, ready to unbox.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="about">
-  <div class="wrap about-grid">
-    <div class="about-frame">
-      <svg viewBox="0 0 200 240" fill="none">
-        <ellipse cx="100" cy="200" rx="70" ry="14" fill="#E1D6BE"/>
-        <circle cx="100" cy="90" r="55" fill="#F5EFE0" stroke="#2B2620" stroke-width="1.4"/>
-        <path d="M55 80 q45 -40 90 0" stroke="#A23B5C" stroke-width="6" fill="none" stroke-linecap="round"/>
-        <circle cx="80" cy="95" r="3" fill="#2B2620"/>
-        <circle cx="120" cy="95" r="3" fill="#2B2620"/>
-        <path d="M85 112 q15 10 30 0" stroke="#2B2620" stroke-width="2" fill="none" stroke-linecap="round"/>
-        <path d="M40 200 q0 -70 60 -70 q60 0 60 70 Z" fill="#6B7B4F"/>
-        <circle cx="70" cy="150" r="10" fill="#DE9F32"/>
-        <path d="M70 150 q10 -6 20 4" stroke="#7c2b46" stroke-width="2" fill="none"/>
+        <g fill="none" stroke="#C6952F" stroke-width="2.4">
+          <path d="M200 130 C 235 130 258 155 258 190 C 258 225 235 250 200 250 C 165 250 142 225 142 190 C142 160 160 138 190 132">
+            <animate attributeName="stroke-dasharray" from="0,620" to="620,0" dur="2.4s" begin="0.3s" fill="freeze"/>
+          </path>
+        </g>
+        <g fill="none" stroke="#75825F" stroke-width="2.4">
+          <path d="M200 165 C 218 165 230 175 230 190 C 230 205 218 216 200 216 C 182 216 170 205 170 190 C170 178 178 168 194 166">
+            <animate attributeName="stroke-dasharray" from="0,320" to="320,0" dur="2s" begin="0.6s" fill="freeze"/>
+          </path>
+        </g>
+        <circle cx="200" cy="190" r="5" fill="#2A2320"/>
       </svg>
     </div>
-    <div class="about-copy">
-      <div class="kicker">The Maker</div>
-      <h2 style="margin-bottom:20px; font-size:clamp(1.7rem,3vw,2.2rem);">Hi, I'm Neha.</h2>
-      <p>What started as a way to unwind after work turned into a hook, a growing yarn stash, and eventually crochetbyneha. I make everything myself, in small batches, usually with tea going cold beside me.</p>
-      <p>I care about where my yarn comes from and how long a piece will last — nothing here is rushed, and nothing leaves my hands until I'd keep it myself.</p>
-      <p>If you don't see exactly what you want in the shop, that's usually where the best pieces start. Just ask.</p>
-      <div class="signature">— Neha</div>
-    </div>
   </div>
 </section>
 
-<section class="section-alt">
+<div class="stitch-divider" style="background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2228%22 height=%2214%22><path d=%22M0 7 Q7 0 14 7 T28 7%22 fill=%22none%22 stroke=%22%232A2320%22 stroke-width=%221.4%22/></svg>')"></div>
+
+<!-- ================= ABOUT ================= -->
+<section class="about" id="about">
   <div class="wrap">
-    <div class="section-head">
-      <div>
-        <div class="kicker">From Customers</div>
-        <h2>Kind words</h2>
+    <div>
+      <span class="eyebrow">The studio</span>
+      <h2>Two people, one craft.</h2>
+      <p>Crochetbyneh.a is a cozy little studio run by a couple. Neha hand-makes every single piece with soft, high-quality yarn — plushies, wearables, and home decor, each one shaped with care and detail. Sabin runs the shop side, keeping orders, tracking, and questions moving smoothly so the pieces reach you without a hitch.</p>
+      <div class="notice">
+        <strong>Made to order:</strong> we keep zero stock on purpose. Every piece is started only after payment, so please allow 3–4 weeks depending on the item. Follow along on
+        <a href="https://www.tiktok.com/@crochetby.neha" target="_blank" rel="noopener">TikTok</a> or Instagram
+        <strong>@crochetby.neha</strong> for progress and new drops.
       </div>
     </div>
-    <div class="testi-grid">
-      <div class="testi"><p>"The fox I ordered for my daughter is better than the photos — the stitching is so neat."</p><div class="who">Priya R.</div></div>
-      <div class="testi"><p>"Custom order process was so easy, and the swatch step meant zero surprises on color."</p><div class="who">Marco T.</div></div>
-      <div class="testi"><p>"My granny square blanket already feels like a family heirloom. Worth the wait."</p><div class="who">Aisha K.</div></div>
+    <div class="makers">
+      <div class="maker-card">
+        <span class="role">Makes every piece</span>
+        <h3>Neha</h3>
+        <ul>
+          <li>Hand-crochets every item herself</li>
+          <li>Works in soft, high-quality yarn</li>
+          <li>Plushies, wearables &amp; home decor</li>
+          <li>Custom orders built to your idea</li>
+        </ul>
+      </div>
+      <div class="maker-card">
+        <span class="role">Runs the shop</span>
+        <h3>Sabin</h3>
+        <ul>
+          <li>Manages the website &amp; orders</li>
+          <li>Helps you track your package</li>
+          <li>Keeps the shop running smoothly</li>
+          <li>Answers messages &amp; questions</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
 
-<footer id="contact">
+<div class="stitch-divider" style="background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2228%22 height=%2214%22><path d=%22M0 7 Q7 14 14 7 T28 7%22 fill=%22none%22 stroke=%22%23C17D86%22 stroke-width=%221.4%22/></svg>')"></div>
+
+<!-- ================= SHOP ================= -->
+<section class="shop" id="shop">
   <div class="wrap">
-    <div class="footer-grid">
+    <div class="shop-head">
       <div>
-        <h3>crochet<em style="color:#DE9F32; font-style:italic;">by</em>neha</h3>
-        <p>Handmade crochet pieces, made one loop at a time. Based and shipping worldwide — reach out to order or ask a question.</p>
+        <span class="eyebrow">The collection</span>
+        <h2>Made by hand, made for you.</h2>
+      </div>
+      <p style="max-width:34ch; color:var(--ink-soft); margin:0;">Tap any piece to send Neha a WhatsApp order with the details filled in.</p>
+    </div>
+
+    <!-- Wearables -->
+    <div class="category">
+      <h3>Wearables &amp; accessories</h3>
+      <div class="grid">
+
+        <article class="card">
+          <div class="card-media">
+            <span class="badge">-30%</span>
+            <img src="images/sunflower-hairbun.jpg" alt="Sunflower crochet hairbun clip worn in dark hair" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h4>Sunflower Hairbun</h4>
+            <p style="margin:0;font-size:0.82rem;color:var(--ink-soft);">A crocheted sunflower clip with trailing stems, worn low behind loose hair.</p>
+            <div class="price-row"><span class="price-now">₹350</span><span class="price-was">₹500</span></div>
+            <a class="card-cta" target="_blank" rel="noopener" href="https://wa.me/9763959028?text=Hi%20Crochetbyneh.a%2C%20I%27d%20like%20to%20order%20the%20Sunflower%20Hairbun%20(%E2%82%B9350).">Order on WhatsApp</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-media">
+            <span class="badge">-30%</span>
+            <img src="images/crochet-shrug.jpg" alt="Open-weave crochet mesh shrug with a pink bow detail" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h4>Crochet Shrug</h4>
+            <p style="margin:0;font-size:0.82rem;color:var(--ink-soft);">An open-mesh shrug finished with a hand-crocheted bow, light enough to layer over anything.</p>
+            <div class="price-row"><span class="price-now">₹1,399</span><span class="price-was">₹2,000</span></div>
+            <a class="card-cta" target="_blank" rel="noopener" href="https://wa.me/9763959028?text=Hi%20Crochetbyneh.a%2C%20I%27d%20like%20to%20order%20the%20Crochet%20Shrug%20(%E2%82%B91%2C399).">Order on WhatsApp</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-media">
+            <span class="badge">-37%</span>
+            <img src="images/scrunchies.jpg" alt="Set of four crochet scrunchies in teal, gold, pink and black" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h4>Scrunchies</h4>
+            <p style="margin:0;font-size:0.82rem;color:var(--ink-soft);">A set of hand-crocheted scrunchies, mixed colourways, soft on hair and easy to stack.</p>
+            <div class="price-row"><span class="price-now">₹222</span><span class="price-was">₹350</span></div>
+            <a class="card-cta" target="_blank" rel="noopener" href="https://wa.me/9763959028?text=Hi%20Crochetbyneh.a%2C%20I%27d%20like%20to%20order%20the%20Scrunchies%20(%E2%82%B9222).">Order on WhatsApp</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- Bags -->
+    <div class="category">
+      <h3>Bags</h3>
+      <div class="grid">
+
+        <article class="card">
+          <div class="card-media">
+            <span class="badge">-17%</span>
+            <img src="images/crochet-ocean-bag.jpg" alt="Navy crochet bag with wave trim, starfish and jellyfish appliques" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h4>Crochet Ocean Bag</h4>
+            <p style="margin:0;font-size:0.82rem;color:var(--ink-soft);">A deep-navy bag with wave-stitch straps and hand-shaped starfish and jellyfish appliqués.</p>
+            <div class="price-row"><span class="price-now">₹2,899</span><span class="price-was">₹3,500</span></div>
+            <a class="card-cta" target="_blank" rel="noopener" href="https://wa.me/9763959028?text=Hi%20Crochetbyneh.a%2C%20I%27d%20like%20to%20order%20the%20Crochet%20Ocean%20Bag%20(%E2%82%B92%2C899).">Order on WhatsApp</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-media">
+            <span class="badge">-33%</span>
+            <img src="images/mesh-bag.jpg" alt="Pink crochet mesh bag with black bow accents" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h4>Mesh Bag</h4>
+            <p style="margin:0;font-size:0.82rem;color:var(--ink-soft);">An airy pink mesh tote trimmed with black bow accents — roomy enough for the everyday essentials.</p>
+            <div class="price-row"><span class="price-now">₹1,999</span><span class="price-was">₹3,000</span></div>
+            <a class="card-cta" target="_blank" rel="noopener" href="https://wa.me/9763959028?text=Hi%20Crochetbyneh.a%2C%20I%27d%20like%20to%20order%20the%20Mesh%20Bag%20(%E2%82%B91%2C999).">Order on WhatsApp</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- Keychains & car charms -->
+    <div class="category">
+      <h3>Keychains &amp; car charms</h3>
+      <div class="grid">
+
+        <article class="card">
+          <div class="card-media">
+            <span class="badge">-26%</span>
+            <img src="images/cute-bird-keychain.jpg" alt="Mint green crochet bird keychain with a red scarf" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h4>Cute Bird Keychain</h4>
+            <p style="margin:0;font-size:0.82rem;color:var(--ink-soft);">A round little bird in mint yarn, wrapped in a tiny red scarf — tiny bird, big cuteness.</p>
+            <div class="price-row"><span class="price-now">₹444</span><span class="price-was">₹599</span></div>
+            <a class="card-cta" target="_blank" rel="noopener" href="https://wa.me/9763959028?text=Hi%20Crochetbyneh.a%2C%20I%27d%20like%20to%20order%20the%20Cute%20Bird%20Keychain%20(%E2%82%B9444).">Order on WhatsApp</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-media">
+            <span class="badge">-50%</span>
+            <img src="images/mini-rolled-cake-keychain.jpg" alt="Pink crochet rolled cake slice keychain" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h4>Mini Rolled Cake Keychain</h4>
+            <p style="margin:0;font-size:0.82rem;color:var(--ink-soft);">A miniature rolled cake slice, stitched in soft pink with a cherry on top.</p>
+            <div class="price-row"><span class="price-now">₹199</span><span class="price-was">₹399</span></div>
+            <a class="card-cta" target="_blank" rel="noopener" href="https://wa.me/9763959028?text=Hi%20Crochetbyneh.a%2C%20I%27d%20like%20to%20order%20the%20Mini%20Rolled%20Cake%20Keychain%20(%E2%82%B9199).">Order on WhatsApp</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-media">
+            <span class="badge">-30%</span>
+            <img src="images/crochet-spiderman.jpg" alt="Crochet spider and ladybug car mirror hanging" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h4>Crochet Spiderman</h4>
+            <p style="margin:0;font-size:0.82rem;color:var(--ink-soft);">A crocheted spider and ladybug charm to hang from the mirror — a little web for the commute.</p>
+            <div class="price-row"><span class="price-now">₹699</span><span class="price-was">₹999</span></div>
+            <a class="card-cta" target="_blank" rel="noopener" href="https://wa.me/9763959028?text=Hi%20Crochetbyneh.a%2C%20I%27d%20like%20to%20order%20the%20Crochet%20Spiderman%20(%E2%82%B9699).">Order on WhatsApp</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- Bouquets & blankets -->
+    <div class="category">
+      <h3>Bouquets &amp; blankets</h3>
+      <div class="grid">
+
+        <article class="card">
+          <div class="card-media">
+            <span class="badge">-25%</span>
+            <img src="images/bouquet-blanket.jpg" alt="Bouquet of crochet red roses arranged like a blanket bundle" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h4>Bouquet Blanket</h4>
+            <p style="margin:0;font-size:0.82rem;color:var(--ink-soft);">Dozens of crocheted red roses gathered into a bouquet that folds out into a blanket.</p>
+            <div class="price-row"><span class="price-now">₹2,999</span><span class="price-was">₹4,000</span></div>
+            <a class="card-cta" target="_blank" rel="noopener" href="https://wa.me/9763959028?text=Hi%20Crochetbyneh.a%2C%20I%27d%20like%20to%20order%20the%20Bouquet%20Blanket%20(%E2%82%B92%2C999).">Order on WhatsApp</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-media">
+            <span class="badge">-10%</span>
+            <img src="images/sunflower-bouquet.jpg" alt="Crochet sunflower bouquet wrapped in purple paper with a bow" loading="lazy">
+          </div>
+          <div class="card-body">
+            <h4>Sunflower Bouquet</h4>
+            <p style="margin:0;font-size:0.82rem;color:var(--ink-soft);">A hand-stitched sunflower bouquet, wrapped and bowed — a bunch that never wilts.</p>
+            <div class="price-row"><span class="price-now">₹1,999</span><span class="price-was">₹2,222</span></div>
+            <a class="card-cta" target="_blank" rel="noopener" href="https://wa.me/9763959028?text=Hi%20Crochetbyneh.a%2C%20I%27d%20like%20to%20order%20the%20Sunflower%20Bouquet%20(%E2%82%B91%2C999).">Order on WhatsApp</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="stitch-divider" style="background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2228%22 height=%2214%22><path d=%22M0 7 Q7 0 14 7 T28 7%22 fill=%22none%22 stroke=%22%23C6952F%22 stroke-width=%221.4%22/></svg>')"></div>
+
+<!-- ================= WHY ================= -->
+<section class="why" id="why">
+  <div class="wrap">
+    <span class="eyebrow">Why shop here</span>
+    <h2 style="margin:10px 0 26px; font-size:clamp(1.7rem,3.4vw,2.3rem);">Small studio, made-for-you pieces.</h2>
+    <div class="why-grid">
+      <div class="why-item">
+        <span class="num">01</span>
+        <h4>One of a kind</h4>
+        <p>Every item is handmade, so no two pieces come out quite the same.</p>
+      </div>
+      <div class="why-item">
+        <span class="num">02</span>
+        <h4>A small, local dream</h4>
+        <p>You're supporting a small couple-run studio, not a factory line.</p>
+      </div>
+      <div class="why-item">
+        <span class="num">03</span>
+        <h4>Custom orders welcome</h4>
+        <p>Bring your own idea — colours, size, or a piece you've been picturing — and Neha will bring it to life.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= POLICIES ================= -->
+<section class="policies" id="policies">
+  <div class="wrap">
+    <span class="eyebrow">Good to know</span>
+    <h2 style="margin:10px 0 22px; font-size:clamp(1.5rem,3vw,1.9rem);">Policies</h2>
+    <div class="policy-grid">
+      <div class="policy-card">
+        <h4>Return policy</h4>
+        <p><!-- TODO: paste your return policy text from the Pathao shop here --> Details coming soon — message us on WhatsApp if you have a question about a return.</p>
+      </div>
+      <div class="policy-card">
+        <h4>Refund policy</h4>
+        <p><!-- TODO: paste your refund policy text from the Pathao shop here --> Details coming soon — message us on WhatsApp if you have a question about a refund.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /.page -->
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">Crochetbyneh.a</div>
+        <p>A cozy online studio making handmade crochet wearables and home accents, one loop at a time.</p>
+        <div class="social-row">
+          <a href="https://www.tiktok.com/@crochetby.neha" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#FAF3E9" stroke-width="1.6"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c0 3 2.5 5 5 5"/></svg>
+          </a>
+          <a href="https://instagram.com/crochetby.neha" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#FAF3E9" stroke-width="1.6"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="0.8" fill="#FAF3E9" stroke="none"/></svg>
+          </a>
+        </div>
       </div>
       <div>
         <h5>Shop</h5>
         <ul>
-          <li><a href="#shop">All products</a></li>
-          <li><a href="#custom">Custom orders</a></li>
-          <li><a href="#about">About Neha</a></li>
+          <li><a href="#shop">Wearables &amp; accessories</a></li>
+          <li><a href="#shop">Bags</a></li>
+          <li><a href="#shop">Keychains &amp; car charms</a></li>
+          <li><a href="#shop">Bouquets &amp; blankets</a></li>
         </ul>
       </div>
       <div>
-        <h5>Get in touch</h5>
+        <h5>Contact</h5>
         <ul>
-          <li><a href="mailto:hello@crochetbyneha.com">hello@crochetbyneha.com</a></li>
-          <li><a href="https://instagram.com/crochetbyneha" target="_blank" rel="noopener">@crochetbyneha</a></li>
-          <li><a href="#">WhatsApp: add your number</a></li>
+          <li><a href="https://wa.me/9763959028" target="_blank" rel="noopener">WhatsApp — 9763959028</a></li>
+          <li><a href="tel:9769283027">Hotline — 9769283027</a></li>
+          <li><a href="https://www.tiktok.com/@crochetby.neha" target="_blank" rel="noopener">TikTok — @crochetby.neha</a></li>
+          <li><a href="instagram.com/crochetby.neha">Instagram — @crochetby.neha</a></li>
         </ul>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 crochetbyneha. Made by hand, one order at a time.</span>
-      <span>Site by you, with a little help.</span>
+      <span>© 2026 Crochetbyneh.a. All rights reserved.</span>
+      <span>Handmade with love, listed with care.</span>
     </div>
   </div>
 </footer>
 
 <script>
-  // mobile nav
-  const toggle = document.getElementById('navToggle');
-  const navList = document.getElementById('navList');
-  toggle.addEventListener('click', () => navList.classList.toggle('open'));
-  navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navList.classList.remove('open')));
-
-  // signature thread: a vertical stitched path that reveals as the user scrolls
-  const svg = document.getElementById('thread-svg');
-  const path = document.getElementById('thread-path');
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  function buildPath(){
-    const h = document.body.scrollHeight;
-    const w = window.innerWidth;
-    const x = Math.max(24, w * 0.035);
-    let d = `M ${x} 0 `;
-    const step = 90;
-    let toggleDir = 1;
-    for(let y = step; y < h; y += step){
-      d += `Q ${x + toggleDir*16} ${y - step/2} ${x} ${y} `;
-      toggleDir *= -1;
-    }
-    svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
-    path.setAttribute('d', d);
-    path.setAttribute('stroke-dasharray', h * 1.4);
-    path.setAttribute('stroke-dashoffset', h * 1.4);
-  }
-
-  function updateThread(){
-    if(prefersReduced) return;
-    const scrollable = document.body.scrollHeight - window.innerHeight;
-    const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
-    const len = parseFloat(path.getAttribute('stroke-dasharray')) || 0;
-    path.style.strokeDashoffset = len - (len * Math.min(progress * 1.05, 1));
-  }
-
-  window.addEventListener('resize', buildPath);
-  window.addEventListener('scroll', updateThread);
-  buildPath();
-  if(!prefersReduced){ updateThread(); }
-  else { path.style.opacity = 0; }
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); } });
+  }, {threshold:0.15});
+  document.querySelectorAll('.card').forEach(c=>io.observe(c));
 </script>
 
 </body>
