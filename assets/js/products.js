@@ -11,7 +11,7 @@ const STORE = {
   pathao: "https://crochetbyneha.pathao.shop",
   tiktok: "https://www.tiktok.com/@crochetby.neha",
   instagram: "https://instagram.com/crochetbyneh.a",
-  facebook: "https://facebook.com/crochetbyneha"
+  facebook: "https://facebook.com/sabin.neupane.984"
 };
 
 const PRODUCTS = [
@@ -41,7 +41,7 @@ const PRODUCTS = [
   },
   {
     id: "scrunchies",
-    name: "Scrunchies (Set of 3)",
+    name: "Scrunchies (ONE)",
     category: "wearables",
     categoryLabel: "Wearables & Accessories",
     price: 222,
