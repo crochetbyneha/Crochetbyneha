@@ -8,7 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
       <p>A cozy online store by Neha, who makes cute handmade crochet items with love. Custom orders bring your exact ideas to life.</p>
       <div class="social-row">
         <a href="${STORE.facebook}" target="_blank" rel="noopener" aria-label="Facebook">f</a>
-        <a href="${STORE.instagram}" target="_blank" rel="noopener" aria-label="Instagram">ig</a>
+        <a href="${STORE.instagram}" target="_blank" rel="noopener" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+</svg></a>
         <a href="${STORE.tiktok}" target="_blank" rel="noopener" aria-label="TikTok">tt</a>
       </div>
     </div>
