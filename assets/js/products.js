@@ -22,7 +22,8 @@ const PRODUCTS = [
     categoryLabel: "Wearables & Accessories",
     price: 350,
     original: 500,
-    discount: 30,
+    discount: 30,**20+ SOLD**
+     
     image: "assets/img/sunflower-hairbun.jpg",
     desc: "A crocheted sunflower clip with trailing stems, worn low behind loose hair.",
     long: "Two layered sunflower blooms in marigold thread, joined by a forest-green hair stick and finished with a pair of dangling flower charms. Slides in and holds a low bun or half-up style without a single pin."
