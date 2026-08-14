@@ -13,7 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
   <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
   <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
 </svg></a>
-        <a href="${STORE.tiktok}" target="_blank" rel="noopener" aria-label="TikTok">tt</a>
+        <a href="${STORE.tiktok}" target="_blank" rel="noopener" aria-label="TikTok"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+</svg></a>
       </div>
     </div>
     <div>
