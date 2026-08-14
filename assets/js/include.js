@@ -70,6 +70,14 @@ document.addEventListener("DOMContentLoaded", () => {
     el.textContent = STORE.hotlineDisplay;
     el.href = "tel:+" + STORE.hotline;
   });
+  document.body.insertAdjacentHTML("beforeend", `
+<a href="https://wa.me/${STORE.whatsappNumber}" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+<svg viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
+<path d="M16 0C7.163 0 0 7.163 0 16c0 2.837.741 5.5 2.037 7.815L0 32l8.408-2.005A15.9 15.9 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.09c-2.523 0-4.878-.703-6.883-1.923l-.494-.293-4.988 1.19 1.216-4.86-.32-.5A13.05 13.05 0 0 1 2.91 16C2.91 8.777 8.777 2.91 16 2.91S29.09 8.777 29.09 16 23.223 29.09 16 29.09zm7.29-9.79c-.4-.2-2.36-1.163-2.727-1.297-.366-.133-.633-.2-.9.2-.267.4-1.033 1.297-1.267 1.564-.233.267-.467.3-.867.1-.4-.2-1.69-.623-3.22-1.987-1.19-1.06-1.993-2.37-2.227-2.77-.233-.4-.025-.617.175-.817.18-.18.4-.467.6-.7.2-.233.267-.4.4-.667.133-.267.067-.5-.033-.7-.1-.2-.9-2.167-1.233-2.967-.325-.78-.655-.674-.9-.686l-.767-.014c-.267 0-.7.1-1.067.5-.367.4-1.4 1.367-1.4 3.333s1.433 3.867 1.633 4.133c.2.267 2.82 4.307 6.834 6.04.955.412 1.7.658 2.28.842.958.305 1.83.262 2.52.159.77-.115 2.36-.965 2.693-1.897.333-.933.333-1.733.233-1.9-.1-.167-.367-.267-.767-.467z"/>
+</svg>
+</a>
+`);
+
   document.querySelectorAll("[data-pathao-link]").forEach(el => el.href = STORE.pathao);
   const y = document.querySelector("[data-year]");
   if (y) y.textContent = new Date().getFullYear();
