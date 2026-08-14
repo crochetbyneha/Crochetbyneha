@@ -3,819 +3,114 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crochetbyneh.a — Artisan Crochet Studio</title>
-<meta name="description" content="Handmade crochet wearables, bags, keychains and bouquets by Neha. Every piece made to order, one loop at a time.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Work+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --canvas:#FAF3E9;
-    --canvas-dim:#F1E7D8;
-    --ink:#2A2320;
-    --ink-soft:#5B5049;
-    --rose:#C17D86;
-    --rose-deep:#A9606B;
-    --gold:#C6952F;
-    --sage:#75825F;
-    --rust:#A85A3B;
-    --card:#FFFDF9;
-    --line: rgba(42,35,32,0.12);
-    --radius: 18px;
-    --max: 1180px;
-  }
-
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--canvas);
-    color:var(--ink);
-    font-family:'Work Sans', sans-serif;
-    font-weight:400;
-    line-height:1.55;
-    -webkit-font-smoothing:antialiased;
-  }
-  img{max-width:100%;display:block;}
-  a{color:inherit;}
-
-  h1,h2,h3{
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    line-height:1.05;
-    margin:0;
-    letter-spacing:-0.01em;
-  }
-
-  .eyebrow{
-    font-family:'Space Mono', monospace;
-    font-size:0.72rem;
-    letter-spacing:0.18em;
-    text-transform:uppercase;
-    color:var(--rose-deep);
-  }
-
-  .wrap{max-width:var(--max); margin:0 auto; padding:0 24px;}
-
-  @media(min-width:768px){ .wrap{padding:0 40px;} }
-
-  /* ---------- top order bar ---------- */
-  .orderbar{
-    background:var(--ink);
-    color:var(--canvas);
-    font-family:'Space Mono', monospace;
-    font-size:0.72rem;
-    letter-spacing:0.02em;
-  }
-  .orderbar .wrap{
-    display:flex;
-    flex-wrap:wrap;
-    gap:6px 20px;
-    justify-content:center;
-    padding-top:9px;
-    padding-bottom:9px;
-    text-align:center;
-  }
-  .orderbar a{text-decoration:none; color:var(--canvas); border-bottom:1px solid rgba(250,243,233,0.4);}
-  .orderbar a:hover{border-color:var(--canvas);}
-
-  /* ---------- header ---------- */
-  header.site{
-    position:sticky; top:0; z-index:40;
-    background:rgba(250,243,233,0.92);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--line);
-  }
-  .nav{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:14px 0;
-  }
-  .brand{
-    display:flex; align-items:center; gap:10px;
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    font-size:1.15rem;
-  }
-  .brand .mark{
-    width:34px;height:34px;border-radius:50%;
-    background:var(--ink);
-    display:flex;align-items:center;justify-content:center;
-    flex-shrink:0;
-  }
-  .brand .mark svg{width:18px;height:18px;}
-  .navlinks{
-    display:none;
-    gap:26px;
-    font-size:0.88rem;
-    color:var(--ink-soft);
-  }
-  .navlinks a{text-decoration:none;}
-  .navlinks a:hover{color:var(--ink);}
-  @media(min-width:820px){ .navlinks{display:flex;} }
-
-  .navcta{
-    font-family:'Space Mono', monospace;
-    font-size:0.72rem;
-    text-decoration:none;
-    background:var(--rose);
-    color:#fff;
-    padding:9px 16px;
-    border-radius:100px;
-    white-space:nowrap;
-  }
-
-  /* ---------- signature thread rail (desktop) ---------- */
-  .page{position:relative;}
-  .thread-rail{
-    display:none;
-    position:absolute;
-    top:0; bottom:0; left:0;
-    width:26px;
-  }
-  @media(min-width:1000px){
-    .thread-rail{display:block;}
-    .page{padding-left:26px;}
-  }
-
-  /* scalloped stitch divider used between sections on all sizes */
-  .stitch-divider{
-    height:14px;
-    width:100%;
-    background-repeat:repeat-x;
-    background-size:28px 14px;
-    background-position:center;
-    opacity:0.55;
-  }
-
-  /* ---------- hero ---------- */
-  .hero{
-    padding:56px 0 60px;
-    position:relative;
-    overflow:hidden;
-  }
-  .hero .wrap{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:36px;
-    align-items:center;
-  }
-  @media(min-width:900px){
-    .hero .wrap{grid-template-columns:1.1fr 0.9fr; gap:20px;}
-  }
-  .hero h1{
-    font-size:clamp(2.3rem, 6vw, 3.6rem);
-    margin:14px 0 18px;
-  }
-  .hero h1 em{
-    font-style:italic;
-    font-weight:500;
-    color:var(--rose-deep);
-  }
-  .hero p.lead{
-    font-size:1.05rem;
-    color:var(--ink-soft);
-    max-width:44ch;
-    margin-bottom:26px;
-  }
-  .hero-ctas{display:flex; flex-wrap:wrap; gap:12px;}
-  .btn{
-    display:inline-flex; align-items:center; gap:8px;
-    font-family:'Work Sans', sans-serif;
-    font-weight:500;
-    font-size:0.92rem;
-    padding:13px 22px;
-    border-radius:100px;
-    text-decoration:none;
-    border:1px solid transparent;
-    cursor:pointer;
-  }
-  .btn-primary{background:var(--ink); color:var(--canvas);}
-  .btn-primary:hover{background:var(--rose-deep);}
-  .btn-ghost{border-color:var(--ink); color:var(--ink);}
-  .btn-ghost:hover{background:var(--ink); color:var(--canvas);}
-
-  .hero-art{
-    position:relative;
-    aspect-ratio:1/1;
-    display:flex;align-items:center;justify-content:center;
-  }
-  .hero-art svg{width:100%; height:100%;}
-
-  /* ---------- about / makers ---------- */
-  .about{
-    padding:64px 0;
-    background:var(--canvas-dim);
-  }
-  .about .wrap{
-    display:grid; gap:36px;
-    grid-template-columns:1fr;
-  }
-  @media(min-width:860px){
-    .about .wrap{grid-template-columns: 0.9fr 1.1fr; align-items:start;}
-  }
-  .about h2{font-size:clamp(1.7rem,3.4vw,2.3rem); margin-bottom:16px;}
-  .about p{color:var(--ink-soft); max-width:56ch;}
-  .makers{
-    display:grid; gap:16px;
-    grid-template-columns:1fr;
-  }
-  @media(min-width:520px){ .makers{grid-template-columns:1fr 1fr;} }
-  .maker-card{
-    background:var(--card);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    padding:22px;
-  }
-  .maker-card .role{
-    font-family:'Space Mono', monospace;
-    font-size:0.68rem;
-    letter-spacing:0.12em;
-    text-transform:uppercase;
-    color:var(--sage);
-    display:block;
-    margin-bottom:8px;
-  }
-  .maker-card h3{font-size:1.15rem; margin-bottom:8px;}
-  .maker-card ul{margin:0; padding-left:18px; color:var(--ink-soft); font-size:0.92rem;}
-  .maker-card li{margin-bottom:4px;}
-
-  .notice{
-    margin-top:28px;
-    border:1px dashed var(--rose-deep);
-    border-radius:14px;
-    padding:16px 18px;
-    font-size:0.88rem;
-    color:var(--ink-soft);
-    background:rgba(193,125,134,0.06);
-  }
-  .notice strong{color:var(--ink);}
-
-  /* ---------- shop ---------- */
-  .shop{padding:64px 0 20px;}
-  .shop-head{
-    display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between;
-    gap:16px; margin-bottom:34px;
-  }
-  .shop-head h2{font-size:clamp(1.7rem,3.4vw,2.3rem);}
-
-  .category{margin-bottom:56px;}
-  .category h3{
-    font-size:1.05rem;
-    font-family:'Space Mono', monospace;
-    font-weight:400;
-    letter-spacing:0.02em;
-    display:flex; align-items:center; gap:12px;
-    color:var(--ink);
-    margin-bottom:22px;
-  }
-  .category h3::after{
-    content:"";
-    flex:1;
-    height:1px;
-    background:var(--line);
-  }
-
-  .grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:16px;
-  }
-  @media(min-width:640px){ .grid{grid-template-columns:repeat(3,1fr); gap:22px;} }
-  @media(min-width:980px){ .grid{grid-template-columns:repeat(4,1fr);} }
-
-  .card{
-    background:var(--card);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    overflow:hidden;
-    display:flex; flex-direction:column;
-    opacity:0; transform:translateY(16px);
-    transition:opacity .6s ease, transform .6s ease;
-  }
-  .card.in-view{opacity:1; transform:translateY(0);}
-
-  .card-media{position:relative; aspect-ratio:1/1; overflow:hidden; background:var(--canvas-dim);}
-  .card-media img{width:100%; height:100%; object-fit:cover; transition:transform .5s ease;}
-  .card:hover .card-media img{transform:scale(1.05);}
-
-  .badge{
-    position:absolute; top:10px; right:10px;
-    background:var(--rose); color:#fff;
-    font-family:'Space Mono', monospace;
-    font-size:0.68rem;
-    padding:4px 8px;
-    border-radius:100px;
-    transform:rotate(-3deg);
-    box-shadow:0 2px 6px rgba(0,0,0,0.12);
-  }
-
-  .card-body{padding:14px 14px 16px; display:flex; flex-direction:column; gap:8px; flex:1;}
-  .card-body h4{
-    font-family:'Fraunces', serif;
-    font-weight:500;
-    font-size:1rem;
-    margin:0;
-  }
-  .price-row{display:flex; align-items:baseline; gap:8px; font-family:'Space Mono', monospace;}
-  .price-now{font-size:1rem; font-weight:700;}
-  .price-was{font-size:0.78rem; color:var(--ink-soft); text-decoration:line-through;}
-
-  .card-cta{
-    margin-top:auto;
-    display:inline-flex; align-items:center; justify-content:center; gap:6px;
-    font-size:0.78rem;
-    font-weight:500;
-    text-decoration:none;
-    padding:9px 12px;
-    border-radius:100px;
-    border:1px solid var(--ink);
-    color:var(--ink);
-  }
-  .card-cta:hover{background:var(--ink); color:var(--canvas);}
-  .card-cta svg{width:13px;height:13px;}
-
-  /* ---------- why / policies ---------- */
-  .why{padding:56px 0; }
-  .why-grid{
-    display:grid; gap:18px;
-    grid-template-columns:1fr;
-  }
-  @media(min-width:760px){ .why-grid{grid-template-columns:repeat(3,1fr);} }
-  .why-item{
-    padding:22px;
-    border-radius:var(--radius);
-    background:var(--card);
-    border:1px solid var(--line);
-  }
-  .why-item .num{
-    font-family:'Space Mono', monospace;
-    color:var(--gold);
-    font-size:0.78rem;
-    margin-bottom:10px;
-    display:block;
-  }
-  .why-item h4{font-family:'Fraunces', serif; font-size:1.05rem; margin-bottom:6px;}
-  .why-item p{margin:0; color:var(--ink-soft); font-size:0.9rem;}
-
-  .policies{padding:20px 0 56px;}
-  .policy-grid{display:grid; gap:16px; grid-template-columns:1fr;}
-  @media(min-width:640px){ .policy-grid{grid-template-columns:1fr 1fr;} }
-  .policy-card{
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    padding:20px 22px;
-    background:var(--canvas-dim);
-    font-size:0.88rem;
-    color:var(--ink-soft);
-  }
-  .policy-card h4{font-family:'Fraunces', serif; color:var(--ink); font-size:1rem; margin-bottom:8px;}
-
-  /* ---------- footer ---------- */
-  footer{
-    background:var(--ink);
-    color:var(--canvas);
-    padding:52px 0 26px;
-  }
-  .foot-grid{
-    display:grid; gap:32px;
-    grid-template-columns:1fr;
-    padding-bottom:32px;
-    border-bottom:1px solid rgba(250,243,233,0.15);
-  }
-  @media(min-width:760px){ .foot-grid{grid-template-columns:1.2fr 1fr 1fr;} }
-  footer h5{
-    font-family:'Space Mono', monospace;
-    font-size:0.7rem;
-    letter-spacing:0.12em;
-    text-transform:uppercase;
-    color:var(--rose);
-    margin-bottom:14px;
-  }
-  footer .foot-brand{font-family:'Fraunces', serif; font-size:1.4rem; margin-bottom:10px;}
-  footer p{color:rgba(250,243,233,0.7); font-size:0.9rem; max-width:38ch;}
-  footer ul{list-style:none; margin:0; padding:0;}
-  footer li{margin-bottom:9px; font-size:0.9rem;}
-  footer a{text-decoration:none; color:rgba(250,243,233,0.85);}
-  footer a:hover{color:#fff;}
-  .foot-bottom{
-    padding-top:22px;
-    display:flex; flex-wrap:wrap; gap:12px;
-    justify-content:space-between;
-    font-size:0.76rem;
-    color:rgba(250,243,233,0.55);
-    font-family:'Space Mono', monospace;
-  }
-
-  .social-row{display:flex; gap:10px; margin-top:16px;}
-  .social-row a{
-    width:34px;height:34px;border-radius:50%;
-    border:1px solid rgba(250,243,233,0.3);
-    display:flex; align-items:center; justify-content:center;
-  }
-  .social-row a:hover{border-color:#fff;}
-  .social-row svg{width:15px;height:15px;}
-
-  @media (prefers-reduced-motion: reduce){
-    *{animation:none !important; transition:none !important;}
-  }
-</style>
+<title>Crochetbyneh.a — Handmade Crochet Wearables & Home Accents</title>
+<meta name="description" content="Crochetbyneh.a is a small handmade crochet studio — bags, wearables, keychains and bouquets, made to order and shipped with love.">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-<div class="orderbar">
-  <div class="wrap">
-    <span>Call or WhatsApp to order &nbsp;·&nbsp;
-      <a href="https://wa.me/9763959028" target="_blank" rel="noopener">WhatsApp 9763959028</a>
-      &nbsp;·&nbsp;
-      <a href="tel:9769283027">Hotline 9769283027</a>
-    </span>
-  </div>
+<div class="announce">
+  Call or WhatsApp to order — <a data-whatsapp-number href="#"></a> &nbsp;•&nbsp; Hotline: <a data-hotline-number href="#"></a>
 </div>
 
 <header class="site">
-  <div class="wrap nav">
-    <a href="#top" class="brand">
-      <span class="mark">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#FAF3E9" stroke-width="1.6" stroke-linecap="round">
-          <path d="M4 12c0-4.4 3.6-8 8-8s8 3.6 8 8-3.6 8-8 8"/>
-          <circle cx="4" cy="12" r="1.4" fill="#FAF3E9" stroke="none"/>
-        </svg>
-      </span>
-      Crochetbyneh.a
-    </a>
-    <nav class="navlinks">
-      <a href="#shop">Shop</a>
-      <a href="#about">About</a>
-      <a href="#why">Why us</a>
-      <a href="#policies">Policies</a>
-    </nav>
-    <a class="navcta" href="#shop">Browse pieces</a>
-  </div>
+  <nav class="nav">
+    <a href="index.html" class="brand"><span class="mark">C</span> Crochetbyneh.a</a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.navlinks').classList.toggle('open')">&#9776;</button>
+    <div class="navlinks">
+      <a href="index.html" class="active">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="contact.html">Contact</a>
+      <a data-pathao-link target="_blank" rel="noopener">Buy on Pathao ↗</a>
+      <a class="nav-cta" data-whatsapp-link target="_blank" rel="noopener">WhatsApp Us</a>
+    </div>
+  </nav>
 </header>
 
-<div class="page" id="top">
-<div class="thread-rail" aria-hidden="true">
-  <svg width="100%" height="100%" preserveAspectRatio="none">
-    <defs>
-      <pattern id="chainV" width="26" height="46" patternUnits="userSpaceOnUse">
-        <ellipse cx="13" cy="11" rx="8" ry="11" fill="none" stroke="#C17D86" stroke-width="2.2" opacity="0.55"/>
-        <ellipse cx="13" cy="34" rx="8" ry="11" fill="none" stroke="#C17D86" stroke-width="2.2" opacity="0.55"/>
-      </pattern>
-    </defs>
-    <rect width="100%" height="100%" fill="url(#chainV)"/>
-  </svg>
-</div>
-
-<!-- ================= HERO ================= -->
 <section class="hero">
   <div class="wrap">
-    <div>
-      <span class="eyebrow">Artisan Crochet Studio</span>
-      <h1>Elegance in<br><em>every loop.</em></h1>
-      <p class="lead">Handmade wearables and home accents, hooked one stitch at a time by Neha — nothing off a shelf, nothing mass-made.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-primary" href="#shop">Browse the collection</a>
-        <a class="btn btn-ghost" href="https://wa.me/9763959028" target="_blank" rel="noopener">Order on WhatsApp</a>
+    <div class="hero-copy">
+      <p class="eyebrow">Artisan Crochet Studio</p>
+      <h1>Elegance in every <em>loop</em>.</h1>
+      <p class="lede">Handmade wearables and home accents, hooked one stitch at a time by Neha. Every piece is made to order — no two are exactly alike.</p>
+      <div class="cta-row">
+        <a class="btn btn-solid btn-lg" href="shop.html">Browse the shop</a>
+        <a class="btn btn-whatsapp btn-lg" data-whatsapp-link target="_blank" rel="noopener">Order on WhatsApp</a>
       </div>
     </div>
-    <div class="hero-art" aria-hidden="true">
-      <svg viewBox="0 0 400 400">
-        <g fill="none" stroke="#2A2320" stroke-width="1.3" opacity="0.85">
-          <circle cx="200" cy="200" r="150" stroke-dasharray="4 10"/>
-        </g>
-        <g fill="none" stroke="#C17D86" stroke-width="2.4">
-          <path d="M200 90 C 260 90 300 130 300 190 C 300 250 260 290 200 290 C 140 290 100 250 100 190 C 100 140 132 105 178 95">
-            <animate attributeName="stroke-dasharray" from="0,900" to="900,0" dur="2.4s" fill="freeze"/>
-          </path>
-        </g>
-        <g fill="none" stroke="#C6952F" stroke-width="2.4">
-          <path d="M200 130 C 235 130 258 155 258 190 C 258 225 235 250 200 250 C 165 250 142 225 142 190 C142 160 160 138 190 132">
-            <animate attributeName="stroke-dasharray" from="0,620" to="620,0" dur="2.4s" begin="0.3s" fill="freeze"/>
-          </path>
-        </g>
-        <g fill="none" stroke="#75825F" stroke-width="2.4">
-          <path d="M200 165 C 218 165 230 175 230 190 C 230 205 218 216 200 216 C 182 216 170 205 170 190 C170 178 178 168 194 166">
-            <animate attributeName="stroke-dasharray" from="0,320" to="320,0" dur="2s" begin="0.6s" fill="freeze"/>
-          </path>
-        </g>
-        <circle cx="200" cy="190" r="5" fill="#2A2320"/>
-      </svg>
+    <div class="hero-photo">
+      <img src="assets/img/ocean-bag.jpg" alt="Handmade crochet ocean bag with starfish and jellyfish details">
     </div>
   </div>
 </section>
 
-<div class="stitch-divider" style="background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2228%22 height=%2214%22><path d=%22M0 7 Q7 0 14 7 T28 7%22 fill=%22none%22 stroke=%22%232A2320%22 stroke-width=%221.4%22/></svg>')"></div>
-
-<!-- ================= ABOUT ================= -->
-<section class="about" id="about">
+<section>
   <div class="wrap">
-    <div>
-      <span class="eyebrow">The studio</span>
-      <h2>Two people, one craft.</h2>
-      <p>Crochetbyneh.a is a cozy little studio run by a couple. Neha hand-makes every single piece with soft, high-quality yarn — plushies, wearables, and home decor, each one shaped with care and detail. Sabin runs the shop side, keeping orders, tracking, and questions moving smoothly so the pieces reach you without a hitch.</p>
-      <div class="notice">
-        <strong>Made to order:</strong> we keep zero stock on purpose. Every piece is started only after payment, so please allow 3–4 weeks depending on the item. Follow along on
-        <a href="https://www.tiktok.com/@crochetby.neha" target="_blank" rel="noopener">TikTok</a> or Instagram
-        <strong>@crochetby.neha</strong> for progress and new drops.
-      </div>
-    </div>
-    <div class="makers">
-      <div class="maker-card">
-        <span class="role">Makes every piece</span>
-        <h3>Neha</h3>
-        <ul>
-          <li>Hand-crochets every item herself</li>
-          <li>Works in soft, high-quality yarn</li>
-          <li>Plushies, wearables &amp; home decor</li>
-          <li>Custom orders built to your idea</li>
-        </ul>
-      </div>
-      <div class="maker-card">
-        <span class="role">Runs the shop</span>
-        <h3>Sabin</h3>
-        <ul>
-          <li>Manages the website &amp; orders</li>
-          <li>Helps you track your package</li>
-          <li>Keeps the shop running smoothly</li>
-          <li>Answers messages &amp; questions</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="stitch-divider" style="background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2228%22 height=%2214%22><path d=%22M0 7 Q7 14 14 7 T28 7%22 fill=%22none%22 stroke=%22%23C17D86%22 stroke-width=%221.4%22/></svg>')"></div>
-
-<!-- ================= SHOP ================= -->
-<section class="shop" id="shop">
-  <div class="wrap">
-    <div class="shop-head">
+    <div class="section-head">
       <div>
-        <span class="eyebrow">The collection</span>
-        <h2>Made by hand, made for you.</h2>
+        <p class="eyebrow">Fresh off the hook</p>
+        <h2>Featured pieces</h2>
       </div>
-      <p style="max-width:34ch; color:var(--ink-soft); margin:0;">Tap any piece to send Neha a WhatsApp order with the details filled in.</p>
+      <a class="btn btn-line" href="shop.html">See full shop →</a>
     </div>
-
-    <!-- Wearables -->
-    <div class="category">
-      <h3>Wearables &amp; accessories</h3>
-      <div class="grid">
-
-        <article class="card">
-          <div class="card-media">
-            <span class="badge">-30%</span>
-            <img src="images/image_5.png" alt="Sunflower crochet hairbun clip worn in dark hair" loading="lazy">
-          </div>
-          <div class="card-body">
-            <h4>Sunflower Hairbun</h4>
-            <p style="margin:0;font-size:0.82rem;color:var(--ink-soft);">A crocheted sunflower clip with trailing stems, worn low behind loose hair.</p>
-            <div class="price-row"><span class="price-now">₹350</span><span class="price-was">₹500</span></div>
-            <a class="card-cta" target="_blank" rel="noopener" href="https://wa.me/9763959028?text=Hi%20Crochetbyneh.a%2C%20I%27d%20like%20to%20order%20the%20Sunflower%20Hairbun%20(%E2%82%B9350).">Order on WhatsApp</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-media">
-            <span class="badge">-30%</span>
-            <img src="images/image_10.png" alt="Open-weave crochet mesh shrug with a pink bow detail" loading="lazy">
-          </div>
-          <div class="card-body">
-            <h4>Crochet Shrug</h4>
-            <p style="margin:0;font-size:0.82rem;color:var(--ink-soft);">An open-mesh shrug finished with a hand-crocheted bow, light enough to layer over anything.</p>
-            <div class="price-row"><span class="price-now">₹1,399</span><span class="price-was">₹2,000</span></div>
-            <a class="card-cta" target="_blank" rel="noopener" href="https://wa.me/9763959028?text=Hi%20Crochetbyneh.a%2C%20I%27d%20like%20to%20order%20the%20Crochet%20Shrug%20(%E2%82%B91%2C399).">Order on WhatsApp</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-media">
-            <span class="badge">-37%</span>
-            <img src="images/image_4.png" alt="Set of four crochet scrunchies in teal, gold, pink and black" loading="lazy">
-          </div>
-          <div class="card-body">
-            <h4>Scrunchies</h4>
-            <p style="margin:0;font-size:0.82rem;color:var(--ink-soft);">A set of hand-crocheted scrunchies, mixed colourways, soft on hair and easy to stack.</p>
-            <div class="price-row"><span class="price-now">₹222</span><span class="price-was">₹350</span></div>
-            <a class="card-cta" target="_blank" rel="noopener" href="https://wa.me/9763959028?text=Hi%20Crochetbyneh.a%2C%20I%27d%20like%20to%20order%20the%20Scrunchies%20(%E2%82%B9222).">Order on WhatsApp</a>
-          </div>
-        </article>
-
-      </div>
-    </div>
-
-    <!-- Bags -->
-    <div class="category">
-      <h3>Bags</h3>
-      <div class="grid">
-
-        <article class="card">
-          <div class="card-media">
-            <span class="badge">-17%</span>
-            <img src="images/image_9.png" alt="Navy crochet bag with wave trim, starfish and jellyfish appliques" loading="lazy">
-          </div>
-          <div class="card-body">
-            <h4>Crochet Ocean Bag</h4>
-            <p style="margin:0;font-size:0.82rem;color:var(--ink-soft);">A deep-navy bag with wave-stitch straps and hand-shaped starfish and jellyfish appliqués.</p>
-            <div class="price-row"><span class="price-now">₹2,899</span><span class="price-was">₹3,500</span></div>
-            <a class="card-cta" target="_blank" rel="noopener" href="https://wa.me/9763959028?text=Hi%20Crochetbyneh.a%2C%20I%27d%20like%20to%20order%20the%20Crochet%20Ocean%20Bag%20(%E2%82%B92%2C899).">Order on WhatsApp</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-media">
-            <span class="badge">-33%</span>
-            <img src="images/image_10.png" alt="Pink crochet mesh bag with black bow accents" loading="lazy">
-          </div>
-          <div class="card-body">
-            <h4>Mesh Bag</h4>
-            <p style="margin:0;font-size:0.82rem;color:var(--ink-soft);">An airy pink mesh tote trimmed with black bow accents — roomy enough for the everyday essentials.</p>
-            <div class="price-row"><span class="price-now">₹1,999</span><span class="price-was">₹3,000</span></div>
-            <a class="card-cta" target="_blank" rel="noopener" href="https://wa.me/9763959028?text=Hi%20Crochetbyneh.a%2C%20I%27d%20like%20to%20order%20the%20Mesh%20Bag%20(%E2%82%B91%2C999).">Order on WhatsApp</a>
-          </div>
-        </article>
-
-      </div>
-    </div>
-
-    <!-- Keychains & car charms -->
-    <div class="category">
-      <h3>Keychains &amp; car charms</h3>
-      <div class="grid">
-
-        <article class="card">
-          <div class="card-media">
-            <span class="badge">-26%</span>
-            <img src="images/image_3.png" alt="Mint green crochet bird keychain with a red scarf" loading="lazy">
-          </div>
-          <div class="card-body">
-            <h4>Cute Bird Keychain</h4>
-            <p style="margin:0;font-size:0.82rem;color:var(--ink-soft);">A round little bird in mint yarn, wrapped in a tiny red scarf — tiny bird, big cuteness.</p>
-            <div class="price-row"><span class="price-now">₹444</span><span class="price-was">₹599</span></div>
-            <a class="card-cta" target="_blank" rel="noopener" href="https://wa.me/9763959028?text=Hi%20Crochetbyneh.a%2C%20I%27d%20like%20to%20order%20the%20Cute%20Bird%20Keychain%20(%E2%82%B9444).">Order on WhatsApp</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-media">
-            <span class="badge">-50%</span>
-            <img src="images/image_6.png" alt="Pink crochet rolled cake slice keychain" loading="lazy">
-          </div>
-          <div class="card-body">
-            <h4>Mini Rolled Cake Keychain</h4>
-            <p style="margin:0;font-size:0.82rem;color:var(--ink-soft);">A miniature rolled cake slice, stitched in soft pink with a cherry on top.</p>
-            <div class="price-row"><span class="price-now">₹199</span><span class="price-was">₹399</span></div>
-            <a class="card-cta" target="_blank" rel="noopener" href="https://wa.me/9763959028?text=Hi%20Crochetbyneh.a%2C%20I%27d%20like%20to%20order%20the%20Mini%20Rolled%20Cake%20Keychain%20(%E2%82%B9199).">Order on WhatsApp</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-media">
-            <span class="badge">-30%</span>
-            <img src="images/image_8.png" alt="Crochet spider and ladybug car mirror hanging" loading="lazy">
-          </div>
-          <div class="card-body">
-            <h4>Crochet Spiderman</h4>
-            <p style="margin:0;font-size:0.82rem;color:var(--ink-soft);">A crocheted spider and ladybug charm to hang from the mirror — a little web for the commute.</p>
-            <div class="price-row"><span class="price-now">₹699</span><span class="price-was">₹999</span></div>
-            <a class="card-cta" target="_blank" rel="noopener" href="https://wa.me/9763959028?text=Hi%20Crochetbyneh.a%2C%20I%27d%20like%20to%20order%20the%20Crochet%20Spiderman%20(%E2%82%B9699).">Order on WhatsApp</a>
-          </div>
-        </article>
-
-      </div>
-    </div>
-
-    <!-- Bouquets & blankets -->
-    <div class="category">
-      <h3>Bouquets &amp; blankets</h3>
-      <div class="grid">
-
-        <article class="card">
-          <div class="card-media">
-            <span class="badge">-25%</span>
-            <img src="images/image_7.png" alt="Bouquet of crochet red roses arranged like a blanket bundle" loading="lazy">
-          </div>
-          <div class="card-body">
-            <h4>Bouquet Blanket</h4>
-            <p style="margin:0;font-size:0.82rem;color:var(--ink-soft);">Dozens of crocheted red roses gathered into a bouquet that folds out into a blanket.</p>
-            <div class="price-row"><span class="price-now">₹2,999</span><span class="price-was">₹4,000</span></div>
-            <a class="card-cta" target="_blank" rel="noopener" href="https://wa.me/9763959028?text=Hi%20Crochetbyneh.a%2C%20I%27d%20like%20to%20order%20the%20Bouquet%20Blanket%20(%E2%82%B92%2C999).">Order on WhatsApp</a>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-media">
-            <span class="badge">-10%</span>
-            <img src="images/image_5.png" alt="Crochet sunflower bouquet wrapped in purple paper with a bow" loading="lazy">
-          </div>
-          <div class="card-body">
-            <h4>Sunflower Bouquet</h4>
-            <p style="margin:0;font-size:0.82rem;color:var(--ink-soft);">A hand-stitched sunflower bouquet, wrapped and bowed — a bunch that never wilts.</p>
-            <div class="price-row"><span class="price-now">₹1,999</span><span class="price-was">₹2,222</span></div>
-            <a class="card-cta" target="_blank" rel="noopener" href="https://wa.me/9763959028?text=Hi%20Crochetbyneh.a%2C%20I%27d%20like%20to%20order%20the%20Sunflower%20Bouquet%20(%E2%82%B91%2C999).">Order on WhatsApp</a>
-          </div>
-        </article>
-
-      </div>
-    </div>
-
+    <div class="grid" id="featured-grid"></div>
   </div>
 </section>
 
-<div class="stitch-divider" style="background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2228%22 height=%2214%22><path d=%22M0 7 Q7 0 14 7 T28 7%22 fill=%22none%22 stroke=%22%23C6952F%22 stroke-width=%221.4%22/></svg>')"></div>
-
-<!-- ================= WHY ================= -->
-<section class="why" id="why">
-  <div class="wrap">
-    <span class="eyebrow">Why shop here</span>
-    <h2 style="margin:10px 0 26px; font-size:clamp(1.7rem,3.4vw,2.3rem);">Small studio, made-for-you pieces.</h2>
-    <div class="why-grid">
-      <div class="why-item">
-        <span class="num">01</span>
-        <h4>One of a kind</h4>
-        <p>Every item is handmade, so no two pieces come out quite the same.</p>
-      </div>
-      <div class="why-item">
-        <span class="num">02</span>
-        <h4>A small, local dream</h4>
-        <p>You're supporting a small couple-run studio, not a factory line.</p>
-      </div>
-      <div class="why-item">
-        <span class="num">03</span>
-        <h4>Custom orders welcome</h4>
-        <p>Bring your own idea — colours, size, or a piece you've been picturing — and Neha will bring it to life.</p>
-      </div>
+<section class="alt">
+  <div class="wrap about-grid">
+    <div>
+      <img src="assets/img/sunflower-hairbun.jpg" alt="Sunflower hairbun worn in dark hair" style="border-radius:14px;border:1px solid var(--line);box-shadow:var(--shadow);">
     </div>
-  </div>
-</section>
-
-<!-- ================= POLICIES ================= -->
-<section class="policies" id="policies">
-  <div class="wrap">
-    <span class="eyebrow">Good to know</span>
-    <h2 style="margin:10px 0 22px; font-size:clamp(1.5rem,3vw,1.9rem);">Policies</h2>
-    <div class="policy-grid">
-      <div class="policy-card">
-        <h4>Return policy</h4>
-        <p>Details coming soon — message us on WhatsApp if you have a question about a return.</p>
-      </div>
-      <div class="policy-card">
-        <h4>Refund policy</h4>
-        <p>Details coming soon — message us on WhatsApp if you have a question about a refund.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-</div><!-- /.page -->
-
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <div class="foot-brand">Crochetbyneh.a</div>
-        <p>A cozy online studio making handmade crochet wearables and home accents, one loop at a time.</p>
-        <div class="social-row">
-          <a href="https://www.tiktok.com/@crochetby.neha" target="_blank" rel="noopener" aria-label="TikTok">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#FAF3E9" stroke-width="1.6"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c0 3 2.5 5 5 5"/></svg>
-          </a>
-          <a href="https://instagram.com/crochetby.neha" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#FAF3E9" stroke-width="1.6"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="0.8" fill="#FAF3E9" stroke="none"/></svg>
-          </a>
+    <div>
+      <p class="eyebrow">About the studio</p>
+      <h2>A cozy shop run by two people, one hook.</h2>
+      <p>Crochetbyneh.a is a small handmade studio started by Neha, who hand-makes every single piece with soft, high-quality yarn — plushies, wearables, and home decor, one loop at a time. Her partner Sabin runs the shop end: orders, tracking, and every message that comes through.</p>
+      <div class="info-cols">
+        <div class="info-col">
+          <h4>Neha's craft</h4>
+          <ul>
+            <li>Handmakes every piece with care</li>
+            <li>Uses soft, high-quality yarn</li>
+            <li>Plushies, wearables & home decor</li>
+          </ul>
+        </div>
+        <div class="info-col">
+          <h4>Sabin & the shop</h4>
+          <ul>
+            <li>Manages the website & orders</li>
+            <li>Helps track packages</li>
+            <li>Answers your messages</li>
+          </ul>
+        </div>
+        <div class="info-col">
+          <h4>Why shop here</h4>
+          <ul>
+            <li>Every item is unique</li>
+            <li>Support a small local dream</li>
+            <li>Custom orders welcome</li>
+          </ul>
         </div>
       </div>
-      <div>
-        <h5>Shop</h5>
-        <ul>
-          <li><a href="#shop">Wearables &amp; accessories</a></li>
-          <li><a href="#shop">Bags</a></li>
-          <li><a href="#shop">Keychains &amp; car charms</a></li>
-          <li><a href="#shop">Bouquets &amp; blankets</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Contact</h5>
-        <ul>
-          <li><a href="https://wa.me/9763959028" target="_blank" rel="noopener">WhatsApp — 9763959028</a></li>
-          <li><a href="tel:9769283027">Hotline — 9769283027</a></li>
-          <li><a href="https://www.tiktok.com/@crochetby.neha" target="_blank" rel="noopener">TikTok — @crochetby.neha</a></li>
-          <li><a href="instagram.com/crochetby.neha">Instagram — @crochetby.neha</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <span>© 2026 Crochetbyneh.a. All rights reserved.</span>
-      <span>Handmade with love, listed with care.</span>
     </div>
   </div>
-</footer>
+</section>
 
+<section>
+  <div class="wrap">
+    <div class="notice">
+      <strong>Please note:</strong> we keep zero initial stock. Every order is made after payment, and handmade pieces take roughly 3–4 weeks depending on the item. Follow along on TikTok or Instagram for progress updates.
+    </div>
+  </div>
+</section>
+
+<footer class="site" id="footer-slot"></footer>
+
+<script src="assets/js/products.js"></script>
+<script src="assets/js/include.js"></script>
 <script>
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); } });
-  }, {threshold:0.15});
-  document.querySelectorAll('.card').forEach(c=>io.observe(c));
+  document.getElementById("featured-grid").innerHTML =
+    PRODUCTS.slice(0,4).map(productCardHTML).join("");
 </script>
-
 </body>
 </html>

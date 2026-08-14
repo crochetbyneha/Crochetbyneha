@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop — Crochetbyneh.a</title>
+<meta name="description" content="Browse handmade crochet bags, wearables, keychains and bouquets from Crochetbyneh.a.">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="announce">
+  Call or WhatsApp to order — <a data-whatsapp-number href="#"></a> &nbsp;•&nbsp; Hotline: <a data-hotline-number href="#"></a>
+</div>
+
+<header class="site">
+  <nav class="nav">
+    <a href="index.html" class="brand"><span class="mark">C</span> Crochetbyneh.a</a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.navlinks').classList.toggle('open')">&#9776;</button>
+    <div class="navlinks">
+      <a href="index.html">Home</a>
+      <a href="shop.html" class="active">Shop</a>
+      <a href="contact.html">Contact</a>
+      <a data-pathao-link target="_blank" rel="noopener">Buy on Pathao ↗</a>
+      <a class="nav-cta" data-whatsapp-link target="_blank" rel="noopener">WhatsApp Us</a>
+    </div>
+  </nav>
+</header>
+
+<section style="padding-top:44px;padding-bottom:0;">
+  <div class="wrap">
+    <p class="eyebrow">The full collection</p>
+    <h1 style="font-size:clamp(1.9rem,4vw,2.6rem);max-width:20ch;">Every piece is hooked to order — browse, then message us to start yours.</h1>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="filters" id="filters">
+      <button class="chip active" data-cat="all">All pieces</button>
+      <button class="chip" data-cat="wearables">Wearables & Accessories</button>
+      <button class="chip" data-cat="bags">Bags</button>
+      <button class="chip" data-cat="keychains">Keychains & Charms</button>
+      <button class="chip" data-cat="bouquets">Bouquets</button>
+    </div>
+    <div class="grid" id="shop-grid"></div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="notice">
+      <strong>Please note:</strong> we keep zero initial stock. Every order is made after payment, and handmade pieces take roughly 3–4 weeks depending on the item.
+    </div>
+  </div>
+</section>
+
+<footer class="site" id="footer-slot"></footer>
+
+<script src="assets/js/products.js"></script>
+<script src="assets/js/include.js"></script>
+<script>
+  const grid = document.getElementById("shop-grid");
+  function render(cat){
+    const list = cat === "all" ? PRODUCTS : PRODUCTS.filter(p => p.category === cat);
+    grid.innerHTML = list.map(productCardHTML).join("");
+  }
+  render("all");
+  document.querySelectorAll("#filters .chip").forEach(chip => {
+    chip.addEventListener("click", () => {
+      document.querySelectorAll("#filters .chip").forEach(c => c.classList.remove("active"));
+      chip.classList.add("active");
+      render(chip.dataset.cat);
+    });
+  });
+</script>
+</body>
+</html>
