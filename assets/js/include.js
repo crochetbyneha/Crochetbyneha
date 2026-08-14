@@ -47,7 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
   </div>
   <div class="wrap foot-bottom">
     <span>© <span data-year></span> Crochetbyneh.a. All rights reserved.</span>
-    <span>Handmade in Nepal, shipped everywhere.</span>
+    <span>Handmade in Nepal, shipped everywhere
+    FOR MORE INFO COONTACT SABIN IN INSTA @s.abin25.</span>
   </div>`;
 
   // re-run the data-attribute fill for newly injected footer nodes
