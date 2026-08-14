@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <h4>Crochetbyneh.a</h4>
       <p>A cozy online store by Neha, who makes cute handmade crochet items with love. Custom orders bring your exact ideas to life.</p>
       <div class="social-row">
-        <a href="${STORE.facebook}" target="_blank" rel="noopener" aria-label="GMAIL"><svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <a href="${STORE.gmail}" target="_blank" rel="noopener" aria-label="GMAIL"><svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
   <path fill="#EA4335" d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713z"/>
   <path fill="#4285F4" d="M24 5.5v13.5c0 1.105-.895 2-2 2h-3.5v-10.25l-6.5 5.25-6.5-5.25v10.25h-3.5c-1.105 0-2-.895-2-2v-13.5c0-1.018 1.157-1.59 1.967-0.974l10.033 8.114 10.033-8.114c0.81-.616 1.967-.044 1.967 0.974z"/>
   <path fill="#FBBC05" d="M0 5.5v1.287l12 9.713 12-9.713v-1.287c0-1.018-1.157-1.59-1.967-0.974l-10.033 8.114-10.033-8.114c-0.81-.616-1.967-.044-1.967 0.974z"/>
