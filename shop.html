@@ -3,77 +3,274 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shop — Crochetbyneh.a</title>
-<meta name="description" content="Browse handmade crochet bags, wearables, keychains and bouquets from Crochetbyneh.a.">
-<link rel="icon" type="img/jpeg" href="assets/img/logo.jpg">
-  <link rel="stylesheet" href="assets/css/style.css">
+<title>Shop - Crochetbyneh.a</title>
+<link href="assets/img/logo.jpg" rel="icon" type="image/jpeg">
+
+<!-- All design styles are kept right here so you don't need a separate file -->
+<style>
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+font-family: system-ui, -apple-system, sans-serif;
+}
+
+body {
+background-color: #faf9f6;
+color: #333;
+}
+
+/* Top Announcement Bar */
+.announcement {
+background-color: #f3e8ff;
+text-align: center;
+padding: 10px;
+font-size: 0.9rem;
+color: #6b21a8;
+}
+
+/* Navigation Bar */
+header {
+background: #ffffff;
+border-bottom: 1px solid #e5e7eb;
+padding: 15px 30px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+header nav {
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 100%;
+max-width: 1200px;
+margin: 0 auto;
+}
+
+header nav a.logo-link {
+display: flex;
+align-items: center;
+gap: 10px;
+text-decoration: none;
+font-weight: bold;
+color: #111;
+}
+
+header nav img {
+width: 40px;
+height: 40px;
+border-radius: 50%;
+object-fit: cover;
+}
+
+.nav-links {
+display: flex;
+gap: 20px;
+}
+
+.nav-links a {
+text-decoration: none;
+color: #4b5563;
+font-weight: 500;
+}
+
+.nav-links a:hover {
+color: #6b21a8;
+}
+
+/* Page Header Title */
+.page-title-section {
+text-align: center;
+padding: 40px 20px 20px;
+}
+
+.page-title-section p {
+color: #6b21a8;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 1px;
+font-size: 0.85rem;
+margin-bottom: 8px;
+}
+
+.page-title-section h1 {
+font-size: 1.8rem;
+color: #111;
+max-width: 700px;
+margin: 0 auto;
+}
+
+/* Important Notice Box */
+.notice-box {
+max-width: 900px;
+margin: 20px auto;
+padding: 15px 20px;
+background-color: #fffbeb;
+border: 1px solid #fef3c7;
+border-radius: 8px;
+color: #92400e;
+font-size: 0.95rem;
+text-align: center;
+}
+
+/* Main Categories & Horizontal Sliders Container */
+.categories-container {
+display: flex;
+flex-direction: column;
+gap: 40px;
+max-width: 1200px;
+margin: 30px auto 60px;
+padding: 0 20px;
+}
+
+.category-section h2 {
+font-size: 1.4rem;
+margin-bottom: 15px;
+color: #1f2937;
+border-left: 4px solid #6b21a8;
+padding-left: 10px;
+}
+
+/* Horizontal Scrolling Track */
+.horizontal-slider {
+display: flex;
+gap: 20px;
+overflow-x: auto;
+scroll-snap-type: x mandatory;
+padding-bottom: 15px;
+scrollbar-width: thin;
+}
+
+/* Hide scrollbar for a clean look */
+.horizontal-slider::-webkit-scrollbar {
+height: 6px;
+}
+.horizontal-slider::-webkit-scrollbar-thumb {
+background: #d1d5db;
+border-radius: 3px;
+}
+
+/* Individual Product Card */
+.product-card {
+flex: 0 0 240px;
+background: #ffffff;
+border: 1px solid #e5e7eb;
+border-radius: 12px;
+padding: 14px;
+display: flex;
+flex-direction: column;
+gap: 10px;
+scroll-snap-align: start;
+box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.product-img {
+width: 100%;
+height: 180px;
+background-color: #f3f4f6;
+border-radius: 8px;
+object-fit: cover;
+}
+
+.product-card h3 {
+font-size: 1rem;
+color: #111;
+}
+
+.product-card p {
+font-size: 0.95rem;
+font-weight: 600;
+color: #6b21a8;
+}
+</style>
 </head>
 <body>
 
-<div class="announce">
-  Call or WhatsApp to order — <a data-whatsapp-number href="#"></a> &nbsp;•&nbsp; Hotline: <a data-hotline-number href="#"></a>
+<div class="announcement">
+Call or WhatsApp to order — Message us to start your custom piece!
 </div>
 
-<header class="site">
-  <nav class="nav">
-    <a href="index.html" class="brand"><img class="mark" src="assets/img/logo.jpg" alt="Crochetbyneh.a logo">Crochetbyneh.a</a>
-    <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.navlinks').classList.toggle('open')">&#9776;</button>
-    <div class="navlinks">
-      <a href="index.html">Home</a>
-      <a href="shop.html" class="active">Shop</a>
-      <a href="contact.html">Contact</a>
-      <a data-pathao-link target="_blank" rel="noopener">Buy on Pathao ↗</a>
-      <a class="nav-cta" data-whatsapp-link target="_blank" rel="noopener">WhatsApp Us</a>
-    </div>
-  </nav>
+<header>
+<nav>
+<a href="index.html" class="logo-link">
+<img alt="Crochetbyneh.a logo" src="assets/img/logo.jpg">
+Crochetbyneh.a
+</a>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="shop.html" style="color: #6b21a8; font-weight: bold;">Shop</a>
+<a href="contact.html">Contact</a>
+</div>
+</nav>
 </header>
 
-<section style="padding-top:44px;padding-bottom:0;">
-  <div class="wrap">
-    <p class="eyebrow">The full collection</p>
-    <h1 style="font-size:clamp(1.9rem,4vw,2.6rem);max-width:20ch;">Every piece is hooked to order — browse, then message us to start yours.</h1>
-  </div>
+<section class="page-title-section">
+<p>The full collection</p>
+<h1>Every piece is hooked to order — browse, then message us to start yours.</h1>
 </section>
 
-<section>
-  <div class="wrap">
-    <div class="filters" id="filters">
-      <button class="chip active" data-cat="all">All pieces</button>
-      <button class="chip" data-cat="wearables">Wearables & Accessories</button>
-      <button class="chip" data-cat="bags">Bags</button>
-      <button class="chip" data-cat="keychains">Keychains & Charms</button>
-      <button class="chip" data-cat="bouquets">Bouquets</button>
-    </div>
-    <div class="grid" id="shop-grid"></div>
-  </div>
+<div class="notice-box">
+<strong>Please note:</strong> We keep zero initial stock. Every order is made after payment, and handmade pieces take roughly 3–4 weeks depending on the item.
+</div>
+
+<!-- CATEGORIZED HORIZONTAL SLIDERS -->
+<div class="categories-container">
+
+<!-- Category 1: Bags -->
+<section class="category-section">
+<h2>Bags & Pouches</h2>
+<div class="horizontal-slider">
+
+<div class="product-card">
+<img src="assets/img/logo.jpg" alt="Product" class="product-img">
+<h3>Cute Crochet Tote</h3>
+<p>$35.00</p>
+</div>
+
+<div class="product-card">
+<img src="assets/img/logo.jpg" alt="Product" class="product-img">
+<h3>Granny Square Bag</h3>
+<p>$40.00</p>
+</div>
+
+<div class="product-card">
+<img src="assets/img/logo.jpg" alt="Product" class="product-img">
+<h3>Mini Pouch</h3>
+<p>$18.00</p>
+</div>
+
+</div>
 </section>
 
-<section class="alt">
-  <div class="wrap">
-    <div class="notice">
-      <strong>Please note:</strong> we keep zero initial stock. Every order is made after payment, and handmade pieces take roughly 3–4 weeks depending on the item.
-    </div>
-  </div>
+<!-- Category 2: Wearables / Accessories -->
+<section class="category-section">
+<h2>Wearables & Accessories</h2>
+<div class="horizontal-slider">
+
+<div class="product-card">
+<img src="assets/img/logo.jpg" alt="Product" class="product-img">
+<h3>Daisy Bucket Hat</h3>
+<p>$25.00</p>
+</div>
+
+<div class="product-card">
+<img src="assets/img/logo.jpg" alt="Product" class="product-img">
+<h3>Cozy Scarf</h3>
+<p>$30.00</p>
+</div>
+
+<div class="product-card">
+<img src="assets/img/logo.jpg" alt="Product" class="product-img">
+<h3>Headband</h3>
+<p>$12.00</p>
+</div>
+
+</div>
 </section>
 
-<footer class="site" id="footer-slot"></footer>
+</div>
 
-<script src="assets/js/products.js"></script>
-<script src="assets/js/include.js"></script>
-<script>
-  const grid = document.getElementById("shop-grid");
-  function render(cat){
-    const list = cat === "all" ? PRODUCTS : PRODUCTS.filter(p => p.category === cat);
-    grid.innerHTML = list.map(productCardHTML).join("");
-  }
-  render("all");
-  document.querySelectorAll("#filters .chip").forEach(chip => {
-    chip.addEventListener("click", () => {
-      document.querySelectorAll("#filters .chip").forEach(c => c.classList.remove("active"));
-      chip.classList.add("active");
-      render(chip.dataset.cat);
-    });
-  });
-</script>
 </body>
 </html>
+
