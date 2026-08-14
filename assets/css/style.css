@@ -271,6 +271,10 @@ footer.site ul{list-style:none; margin:0; padding:0; display:flex; flex-directio
   .navlinks.open{transform:translateX(0);}
   .nav-toggle{
     display:block; background:none; border:none; font-size:1.6rem; color:var(--navy); cursor:pointer;}
+
+ }
+  }
+ }
     .whatsapp-float {
 position: fixed;
 bottom: 20px;
@@ -292,7 +296,4 @@ transform: scale(1.1);
 .whatsapp-float svg {
 width: 30px;
 height: 30px;
-}
-
-  }
 }
