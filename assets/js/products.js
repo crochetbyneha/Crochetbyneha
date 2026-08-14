@@ -10,7 +10,7 @@ const STORE = {
   hotlineDisplay: "+977 976-928-3027",
   pathao: "https://crochetbyneha.pathao.shop",
   tiktok: "https://www.tiktok.com/@crochetby.neha",
-  instagram: "https://instagram.com/crochetby.neha",
+  instagram: "https://instagram.com/crochetbyneh.a",
   facebook: "https://facebook.com/crochetbyneha"
 };
 
