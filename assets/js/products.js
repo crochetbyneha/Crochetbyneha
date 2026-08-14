@@ -20,7 +20,7 @@ const PRODUCTS = [
     name: "Sunflower Hairbun",
     category: "wearables",
     categoryLabel: "Wearables & Accessories",
-    price: 350 OR 3$,
+    price: 350,
     original: 500,
     discount: 30,
     image: "assets/img/sunflower-hairbun.jpg",
