@@ -1,117 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Track Your Crochet Order - Nepal Can Move</title>
-<style>
-body {
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-background-color: #f9f6f0; /* Soft warm tone suitable for a handmade crochet brand */
-color: #4a3b32;
-margin: 0;
-padding: 40px 20px;
-display: flex;
-justify-content: center;
-align-items: center;
-min-height: 80vh;
-}
-.tracking-container {
-background: #ffffff;
-padding: 30px;
-border-radius: 12px;
-box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-max-width: 500px;
-width: 100%;
-text-align: center;
-}
-h2 {
-margin-bottom: 10px;
-color: #5c4033;
-}
-p {
-font-size: 14px;
-color: #776b62;
-margin-bottom: 25px;
-}
-.form-group {
-margin-bottom: 20px;
-text-align: left;
-}
-label {
-display: block;
-font-weight: 600;
-margin-bottom: 8px;
-font-size: 13px;
-}
-input[type="text"] {
-width: 100%;
-padding: 12px;
-border: 1px solid #dcd6d0;
-border-radius: 6px;
-font-size: 16px;
-box-sizing: border-box;
-outline: none;
-transition: border-color 0.2s;
-}
-input[type="text"]:focus {
-border-color: #a47551;
-}
-button {
-background-color: #a47551;
-color: white;
-border: none;
-padding: 12px 20px;
-width: 100%;
-border-radius: 6px;
-font-size: 16px;
-font-weight: 600;
-cursor: pointer;
-transition: background-color 0.2s;
-}
-button:hover {
-background-color: #865d3d;
-}
-.ncm-note {
-margin-top: 20px;
-font-size: 12px;
-color: #998f86;
-}
-</style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Track Your Order — Crochet by Neha</title>
+<meta name="description" content="Track your Crochet by Neha order — shipped via Pathao, tracked through NCM (Nepal Can Move)." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<div class="tracking-container">
-<h2>Track Your Crochet Package</h2>
-<p>Enter your Nepal Can Move (NCM) tracking or waybill number below to check your delivery status.</p>
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html#home" class="logo">
+      <img src="https://crochetbyneha.github.io/assets/img/logo.jpg" alt="Crochet by Neha logo" />
+      Crochet by Neha
+    </a>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#shop">Shop</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#reviews">Reviews</a></li>
+        <li><a href="track.html">Track Order</a></li>
+        <li><a href="index.html#help">Help</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div style="display:flex; align-items:center; gap:14px;">
+      <a class="nav-cta" href="index.html#shop">Shop Now</a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
 
-<form id="trackingForm" onsubmit="trackOrder(event)">
-<div class="form-group">
-<label for="trackingCode">NCM Tracking Number:</label>
-<input type="text" id="trackingCode" placeholder="e.g., NCM-XXXXXX" required>
-</div>
-<button type="submit">Track with Nepal Can Move</button>
-</form>
+<section class="hero" style="padding:56px 0 60px;">
+  <div class="wrap hero-copy">
+    <span class="eyebrow">Order Tracking</span>
+    <h1 style="font-size:36px;">Where's my crochet piece?</h1>
+    <p>Every made-to-order piece ships through Pathao and is tracked via NCM (Nepal Can Move). Enter your tracking number below for a quick status preview, or jump straight to the official NCM tracker.</p>
+  </div>
+</section>
 
-<div class="ncm-note">
-Powered securely in partnership with Nepal Can Move logistics.
-</div>
+<section class="section">
+  <div class="wrap">
+    <div class="track-card">
+      <label class="eyebrow" style="color:var(--navy-950)">NCM Tracking Number</label>
+      <input type="text" id="trackInput" placeholder="e.g. NCM-2026-004821" />
+      <button class="btn btn-primary" style="width:100%; padding:12px;" id="trackBtn">Check Status</button>
+
+      <div class="track-status" id="trackStatus">
+        <div class="track-step done"><span class="dot"></span> Order placed</div>
+        <div class="track-step done"><span class="dot"></span> Handed to NCM branch</div>
+        <div class="track-step done"><span class="dot"></span> In transit to destination branch</div>
+        <div class="track-step"><span class="dot"></span> Out for delivery</div>
+        <div class="track-step"><span class="dot"></span> Delivered</div>
+      </div>
+
+      <p style="font-size:12.5px; color:#57647c; margin-top:18px;">
+        This is a status preview based on typical order stages. For live, authoritative tracking — or if a status looks wrong — use the official NCM site below or message us on WhatsApp with your tracking number.
+      </p>
+
+      <div style="display:flex; gap:10px; margin-top:10px;">
+        <a class="btn btn-secondary" id="ncmOfficialLink" target="_blank" rel="noopener">Open Official NCM Tracker</a>
+        <a class="btn btn-whatsapp" id="waTrackLink" target="_blank" rel="noopener">Ask on WhatsApp</a>
+      </div>
+
+      <div style="margin-top:24px; padding-top:20px; border-top:1px solid #e4e8f0;">
+        <h4 style="font-family:var(--font-display); margin:0 0 10px;">How shipping works</h4>
+        <ul style="color:#57647c; font-size:13.5px; line-height:1.8; padding-left:18px; margin:0;">
+          <li>Handmade pieces take roughly 3–4 weeks to complete after payment</li>
+          <li>Once finished, your order is handed to Pathao for pickup and delivery</li>
+          <li>Tracking updates run through NCM (Nepal Can Move)</li>
+          <li>You'll get your tracking number by WhatsApp as soon as it ships</li>
+          <li>Prefer to order directly? Use our <a href="#" id="pathaoInlineLink" target="_blank" rel="noopener" style="color:var(--amber-500)">Pathao storefront</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="footer-col footer-brand">
+      <strong style="color:#fff; font-family:var(--font-display); font-size:18px;">Crochet by Neha</strong>
+      <p id="footerAboutBlurb"></p>
+      <div class="footer-social">
+        <a id="footerFb" target="_blank" rel="noopener" title="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H16.7V3.6C16.4 3.56 15.4 3.47 14.3 3.47c-2.3 0-3.9 1.4-3.9 4V9.9H7.7V13h2.7v8h3.1z"/></svg>
+        </a>
+        <a id="footerInsta" target="_blank" rel="noopener" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.7 0 3.05.01 4.12.06 1.06.05 1.79.22 2.43.47a4.9 4.9 0 0 1 1.77 1.15 4.9 4.9 0 0 1 1.15 1.77c.25.64.42 1.37.47 2.43.05 1.07.06 1.42.06 4.12s-.01 3.05-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.64.25-1.37.42-2.43.47C15.05 21.99 14.7 22 12 22s-3.05-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.25-.64-.42-1.37-.47-2.43C2.01 15.05 2 14.7 2 12s.01-3.05.06-4.12c.05-1.06.22-1.79.47-2.43a4.9 4.9 0 0 1 1.15-1.77A4.9 4.9 0 0 1 5.45 2.53c.64-.25 1.37-.42 2.43-.47C8.95 2.01 9.3 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.4-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg>
+        </a>
+        <a id="footerTiktok" target="_blank" rel="noopener" title="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 2h-3.2v13.5a2.9 2.9 0 1 1-2.1-2.8V9.4a6.1 6.1 0 1 0 5.3 6V8.8a8.2 8.2 0 0 0 4.9 1.6V7.2a4.9 4.9 0 0 1-4.9-5.2z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="index.html#shop">All pieces</a></li>
+        <li><a href="index.html#shop">Wearables & Accessories</a></li>
+        <li><a href="index.html#shop">Bags</a></li>
+        <li><a href="index.html#shop">Keychains & Charms</a></li>
+        <li><a href="index.html#shop">Bouquets</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Get in touch</h4>
+      <ul>
+        <li><a id="footerWa" target="_blank" rel="noopener">WhatsApp us</a></li>
+        <li><a id="footerPhone"></a></li>
+        <li><a id="footerPathao" target="_blank" rel="noopener">Order via Pathao</a></li>
+        <li><a href="track.html">Track your order</a></li>
+        <li><a href="index.html#reviews">Customer reviews</a></li>
+        <li><a href="index.html#contact">Contact page</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Good to know</h4>
+      <ul>
+        <li><a href="index.html#help">Made-to-order timeline</a></li>
+        <li><a href="index.html#help">Return & exchange policy</a></li>
+        <li><a href="index.html#help">Refund policy</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrap footer-bottom">
+    <div>© <span id="year"></span> Crochet by Neha. All rights reserved.</div>
+    <div>Handmade in Nepal, shipped everywhere.</div>
+  </div>
+</footer>
+
+<div class="app-dock">
+  <a id="dockWhatsapp" target="_blank" rel="noopener" title="WhatsApp" style="background:#25D36622">
+    <svg viewBox="0 0 32 32" fill="#25D366"><path d="M16 3C9 3 3.3 8.7 3.3 15.7c0 2.5.7 4.9 1.9 7L3 29l6.5-2.1c2 .9 4.2 1.4 6.5 1.4 7 0 12.7-5.7 12.7-12.7C28.7 8.7 23 3 16 3zm0 22.9c-2.1 0-4.1-.6-5.8-1.6l-.4-.2-4.1 1.3 1.3-4-.3-.4c-1.1-1.8-1.7-3.8-1.7-5.9C5 9.8 9.9 5 16 5s11 4.8 11 10.7C27 21.6 22.1 25.9 16 25.9zm5.9-8c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2s-.8 1.1-1 1.3-.4.3-.7.1c-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.3s0-.5.2-.7c.2-.2.3-.3.5-.6.2-.2.2-.4.3-.6.1-.2 0-.5 0-.6 0-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.3 1.4 3.5c.2.2 2.4 3.7 5.8 5.1.8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.3.2-1.5-.1-.1-.3-.2-.6-.4z"/></svg>
+  </a>
+  <a id="dockPhone" title="Call" style="background:#4a3c5c22">
+    <svg viewBox="0 0 24 24" fill="#4a3c5c"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"/></svg>
+  </a>
+  <a id="dockInsta" target="_blank" rel="noopener" title="Instagram" style="background:#E1306C22">
+    <svg viewBox="0 0 24 24" fill="#E1306C"><path d="M12 2c2.7 0 3.05.01 4.12.06 1.06.05 1.79.22 2.43.47a4.9 4.9 0 0 1 1.77 1.15 4.9 4.9 0 0 1 1.15 1.77c.25.64.42 1.37.47 2.43.05 1.07.06 1.42.06 4.12s-.01 3.05-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.64.25-1.37.42-2.43.47C15.05 21.99 14.7 22 12 22s-3.05-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.25-.64-.42-1.37-.47-2.43C2.01 15.05 2 14.7 2 12s.01-3.05.06-4.12c.05-1.06.22-1.79.47-2.43a4.9 4.9 0 0 1 1.15-1.77A4.9 4.9 0 0 1 5.45 2.53c.64-.25 1.37-.42 2.43-.47C8.95 2.01 9.3 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.4-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg>
+  </a>
+  <a id="dockTiktok" target="_blank" rel="noopener" title="TikTok" style="background:#00000022">
+    <svg viewBox="0 0 24 24" fill="#111"><path d="M16.6 2h-3.2v13.5a2.9 2.9 0 1 1-2.1-2.8V9.4a6.1 6.1 0 1 0 5.3 6V8.8a8.2 8.2 0 0 0 4.9 1.6V7.2a4.9 4.9 0 0 1-4.9-5.2z"/></svg>
+  </a>
+  <a id="dockFb" target="_blank" rel="noopener" title="Facebook" style="background:#1877F222">
+    <svg viewBox="0 0 24 24" fill="#1877F2"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H16.7V3.6C16.4 3.56 15.4 3.47 14.3 3.47c-2.3 0-3.9 1.4-3.9 4V9.9H7.7V13h2.7v8h3.1z"/></svg>
+  </a>
 </div>
 
+<script src="products.js"></script>
 <script>
-function trackOrder(event) {
-event.preventDefault();
-const trackingCode = document.getElementById('trackingCode').value.trim();
+document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("mobileToggle").addEventListener("click", () => {
+  document.getElementById("navLinks").classList.toggle("open");
+});
 
-if (trackingCode) {
-// Redirects user to the official Nepal Can Move tracking portal page
-const ncmUrl = `https://portal.nepalcanmove.com/track/`;
+document.getElementById("ncmOfficialLink").href = SITE_CONFIG.ncmTrackingUrl;
+document.getElementById("pathaoInlineLink").href = SITE_CONFIG.pathaoMerchantUrl;
+document.getElementById("dockPhone").href = `tel:${SITE_CONFIG.phone}`;
+document.getElementById("dockInsta").href = SITE_CONFIG.instagram;
+document.getElementById("dockTiktok").href = SITE_CONFIG.tiktok;
+document.getElementById("dockFb").href = SITE_CONFIG.facebook;
 
-// Open official tracking page in a new tab
-window.open(ncmUrl, '_blank');
+function waLink(msg) {
+  return `https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(msg)}`;
 }
-}
+document.getElementById("dockWhatsapp").href = waLink(`Hi ${SITE_CONFIG.brandName}, I need help with an order.`);
+
+document.getElementById("footerAboutBlurb").textContent = SITE_CONFIG.aboutBlurb;
+document.getElementById("footerFb").href = SITE_CONFIG.facebook;
+document.getElementById("footerInsta").href = SITE_CONFIG.instagram;
+document.getElementById("footerTiktok").href = SITE_CONFIG.tiktok;
+document.getElementById("footerWa").href = waLink(`Hi ${SITE_CONFIG.brandName}! I'd like to know more about your pieces.`);
+document.getElementById("footerPhone").href = `tel:${SITE_CONFIG.phone}`;
+document.getElementById("footerPhone").textContent = SITE_CONFIG.phone;
+document.getElementById("footerPathao").href = SITE_CONFIG.pathaoMerchantUrl;
+
+const trackBtn = document.getElementById("trackBtn");
+const trackInput = document.getElementById("trackInput");
+const trackStatus = document.getElementById("trackStatus");
+const waTrackLink = document.getElementById("waTrackLink");
+
+trackBtn.addEventListener("click", () => {
+  const id = trackInput.value.trim();
+  if (!id) { trackInput.focus(); return; }
+  trackStatus.classList.add("show");
+  waTrackLink.href = waLink(`Hi ${SITE_CONFIG.brandName}, can you check my NCM tracking number ${id}?`);
+});
 </script>
-
 </body>
 </html>

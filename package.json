@@ -1,0 +1,9 @@
+{
+  "name": "crochetbyneha-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Crochet by Neha — handmade crochet showcase, shop, order tracking, and AI assistant.",
+  "scripts": {
+    "dev": "npx serve ."
+  }
+}

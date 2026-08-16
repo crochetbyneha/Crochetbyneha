@@ -1,118 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crochetbyneh.a — Handmade Crochet Wearables & Home Accents</title>
-<meta name="description" content="Crochetbyneh.a is a small handmade crochet studio — bags, wearables, keychains and bouquets, made to order and shipped with love.">
-<link rel="icon" type="img/jpeg" href="assets/img/logo.jpg">
-<link rel="stylesheet" href="assets/css/style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Crochet by Neha — Handmade Crochet Wearables & Home Accents</title>
+<meta name="description" content="Crochet by Neha is a small handmade crochet studio — bags, wearables, keychains and bouquets, made to order, colour-customized, and shipped with love." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<div class="announce">
-  Call or WhatsApp to order — <a data-whatsapp-number href="#"></a> &nbsp;•&nbsp; Hotline: <a data-hotline-number href="#"></a>
-</div>
-
-<header class="site">
-  <nav class="nav">
-    <a href="index.html" class="brand"><img class="mark" src="assets/img/logo.jpg" alt="Crochetbyneh.a logo"> Crochetbyneh.a</a>
-    <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.navlinks').classList.toggle('open')">&#9776;</button>
-    <div class="navlinks">
-      <a href="index.html" class="active">Home</a>
-      <a href="shop.html">Shop</a>
-      <a href="contact.html">Contact</a>
-      <a href="track.html">Track Your Order</a>
-      <a data-pathao-link target="_blank" rel="noopener">Buy on Pathao ↗</a>
-      <a class="nav-cta" data-whatsapp-link target="_blank" rel="noopener">WhatsApp Us</a>
+<header class="site-header">
+  <div class="wrap">
+    <a href="#home" class="logo">
+      <img src="https://crochetbyneha.github.io/assets/img/logo.jpg" alt="Crochet by Neha logo" />
+      Crochet by Neha
+    </a>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="track.html">Track Order</a></li>
+        <li><a href="#help">Help</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div style="display:flex; align-items:center; gap:14px;">
+      <a class="nav-cta" href="#shop">Shop Now</a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">☰</button>
     </div>
-  </nav>
+  </div>
 </header>
 
-<section class="hero">
+<!-- ================= HERO / HOVER-TO-EXPLORE VIEWER ================= -->
+<section class="hero" id="home">
   <div class="wrap">
     <div class="hero-copy">
-      <p class="eyebrow">Artisan Crochet Studio</p>
-      <h1>Elegance in every <em>loop</em>.</h1>
-      <p class="lede">Handmade wearables and home accents, hooked one stitch at a time by Neha. Every piece is made to order — no two are exactly alike.</p>
-      <div class="cta-row">
-        <a class="btn btn-solid btn-lg" href="shop.html">Browse the shop</a>
-        <a class="btn btn-whatsapp btn-lg" data-whatsapp-link target="_blank" rel="noopener">Order on WhatsApp</a>
-      </div>
+      <span class="eyebrow">Artisan Crochet Studio</span>
+      <h1>Elegance in every loop.</h1>
+      <p>Handmade wearables, bags, and home accents, hooked one stitch at a time by Neha. Move your cursor across the piece to see it worn — every item is made to order and colour-customized just for you. Tap a glowing point to inquire on WhatsApp.</p>
+      <span class="hero-hint">MOVE CURSOR OVER THE PIECE · TAP A POINT TO INQUIRE</span>
     </div>
-    <div class="hero-photo">
-      <img src="assets/img/fawk.gif" alt="Handmade crochet ocean bag with starfish and jellyfish details">
+
+    <div class="xray-stage" id="xrayStage">
+      <img class="xray-exterior" id="exteriorImg" alt="Crochet by Neha flat-lay collection" />
+      <img class="xray-interior" id="interiorImg" alt="Crochet by Neha piece worn" />
+      <div class="xray-ring" id="xrayRing"></div>
+      <div class="xray-label" id="xrayLabel">THE COLLECTION</div>
+      <!-- hotspots injected by script.js -->
     </div>
   </div>
 </section>
 
-<section>
+<!-- ================= SHOP ================= -->
+<section class="section" id="shop">
   <div class="wrap">
     <div class="section-head">
       <div>
-        <p class="eyebrow">Fresh off the hook</p>
-        <h2>Featured pieces</h2>
+        <span class="eyebrow">The full collection</span>
+        <h2>Every piece is hooked to order</h2>
+        <p>Pick a colourway, then message us to start yours. We keep zero initial stock — production starts after payment and takes roughly 3–4 weeks.</p>
       </div>
-      <a class="btn btn-line" href="shop.html">See full shop →</a>
     </div>
-    <div class="grid" id="featured-grid"></div>
+
+    <div class="tier-tabs" id="tierTabs"></div>
+    <div id="productRows"></div>
   </div>
 </section>
 
-<section class="alt">
-  <div class="wrap about-grid">
-    <div>
-      <img src="assets/img/sunflower-hairbun.jpg" alt="Sunflower hairbun worn in dark hair" style="border-radius:14px;border:1px solid var(--line);box-shadow:var(--shadow);">
-    </div>
-    <div>
-      <p class="eyebrow">About the studio</p>
-      <h2>A cozy shop run by two people, one hook.</h2>
-      <p>Crochetbyneh.a is a small handmade studio started by Neha, who hand-makes every single piece with soft, high-quality yarn — plushies, wearables, and home decor, one loop at a time. Her partner Sabin runs the shop end: orders, tracking, and every message that comes through.</p>
-      <div class="info-cols">
-        <div class="info-col">
-          <h4>Neha's craft</h4>
-          <ul>
-            <li>Handmakes every piece with care</li>
-            <li>Uses soft, high-quality yarn</li>
-            <li>Plushies, wearables & home decor</li>
-          </ul>
-        </div>
-        <div class="info-col">
-          <h4>Sabin & the shop</h4>
-          <ul>
-            <li>Manages the website & orders</li>
-            <li>Helps track packages</li>
-            <li>Answers your messages</li>
-          </ul>
-        </div>
-        <div class="info-col">
-          <h4>Why shop here</h4>
-          <ul>
-            <li>Every item is unique</li>
-            <li>Support a small local dream</li>
-            <li>Custom orders welcome</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
+<!-- ================= ABOUT THE STUDIO ================= -->
+<section class="section" id="about" style="background:var(--white); border-top:1px solid #e4e8f0; border-bottom:1px solid #e4e8f0;">
   <div class="wrap">
-    <div class="notice">
-      <strong>Please note:</strong> we keep zero initial stock. Every order is made after payment, and handmade pieces take roughly 3–4 weeks depending on the item. Follow along on TikTok or Instagram for progress updates.
+    <span class="eyebrow" id="aboutEyebrow">About the studio</span>
+    <h2 id="aboutHeading">A cozy shop run by two people, one hook.</h2>
+    <p class="about-body" id="aboutBody"></p>
+    <div class="about-grid" id="aboutGrid"></div>
+  </div>
+</section>
+
+<!-- ================= REVIEWS ================= -->
+<section class="section" id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Loved by customers</span>
+        <h2>What people are saying</h2>
+        <p>Ordered from us? Send a photo of your piece and a few words on WhatsApp — we love featuring customer photos here.</p>
+      </div>
+    </div>
+    <div class="review-grid" id="reviewGrid"></div>
+  </div>
+</section>
+
+<!-- ================= HELP / FAQ ================= -->
+<section class="section" id="help" style="background:var(--white); border-top:1px solid #e4e8f0; border-bottom:1px solid #e4e8f0;">
+  <div class="wrap contact-grid">
+    <div>
+      <span class="eyebrow">Good to know</span>
+      <h2>Frequently asked</h2>
+      <div id="faqList"></div>
+    </div>
+
+    <div id="contact" class="contact-card">
+      <span class="eyebrow" style="color:var(--amber-500)">Say hello</span>
+      <h3 style="color:#fff">Contact Crochet by Neha</h3>
+      <a class="channel" id="whatsappChannel" target="_blank" rel="noopener">
+        <svg viewBox="0 0 32 32"><path d="M16 3C9 3 3.3 8.7 3.3 15.7c0 2.5.7 4.9 1.9 7L3 29l6.5-2.1c2 .9 4.2 1.4 6.5 1.4 7 0 12.7-5.7 12.7-12.7C28.7 8.7 23 3 16 3zm0 22.9c-2.1 0-4.1-.6-5.8-1.6l-.4-.2-4.1 1.3 1.3-4-.3-.4c-1.1-1.8-1.7-3.8-1.7-5.9C5 9.8 9.9 5 16 5s11 4.8 11 10.7C27 21.6 22.1 25.9 16 25.9zm5.9-8c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2s-.8 1.1-1 1.3-.4.3-.7.1c-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.3s0-.5.2-.7c.2-.2.3-.3.5-.6.2-.2.2-.4.3-.6.1-.2 0-.5 0-.6 0-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.3 1.4 3.5c.2.2 2.4 3.7 5.8 5.1.8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.3.2-1.5-.1-.1-.3-.2-.6-.4z"/></svg>
+        <span id="whatsappChannelLabel">WhatsApp — chat now</span>
+      </a>
+      <a class="channel" id="phoneChannel">
+        <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"/></svg>
+        <span id="phoneChannelLabel">Call / Hotline</span>
+      </a>
+      <a class="channel" id="pathaoChannel" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M4 7h11l4 4v6h-2a2.5 2.5 0 1 1-5 0H9a2.5 2.5 0 1 1-5 0H2v-8l2-2zm0 2v6h.6a2.5 2.5 0 0 1 4.8 0h2.2V9H4zm11 1v3h4.1L17 9h-2z"/></svg>
+        <span>Order via Pathao</span>
+      </a>
+      <a class="channel" id="instaChannel" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3.05.01 4.12.06 1.06.05 1.79.22 2.43.47a4.9 4.9 0 0 1 1.77 1.15 4.9 4.9 0 0 1 1.15 1.77c.25.64.42 1.37.47 2.43.05 1.07.06 1.42.06 4.12s-.01 3.05-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.64.25-1.37.42-2.43.47C15.05 21.99 14.7 22 12 22s-3.05-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.25-.64-.42-1.37-.47-2.43C2.01 15.05 2 14.7 2 12s.01-3.05.06-4.12c.05-1.06.22-1.79.47-2.43a4.9 4.9 0 0 1 1.15-1.77A4.9 4.9 0 0 1 5.45 2.53c.64-.25 1.37-.42 2.43-.47C8.95 2.01 9.3 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.4-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg>
+        <span>Instagram</span>
+      </a>
+      <a class="channel" id="tiktokChannel" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M16.6 2h-3.2v13.5a2.9 2.9 0 1 1-2.1-2.8V9.4a6.1 6.1 0 1 0 5.3 6V8.8a8.2 8.2 0 0 0 4.9 1.6V7.2a4.9 4.9 0 0 1-4.9-5.2z"/></svg>
+        <span>TikTok</span>
+      </a>
+      <a class="channel" id="fbChannel" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H16.7V3.6C16.4 3.56 15.4 3.47 14.3 3.47c-2.3 0-3.9 1.4-3.9 4V9.9H7.7V13h2.7v8h3.1z"/></svg>
+        <span>Facebook</span>
+      </a>
     </div>
   </div>
 </section>
 
-<footer class="site" id="footer-slot"></footer>
+<footer>
+  <div class="wrap footer-grid">
+    <div class="footer-col footer-brand">
+      <strong style="color:#fff; font-family:var(--font-display); font-size:18px;">Crochet by Neha</strong>
+      <p id="footerAboutBlurb"></p>
+      <div class="footer-social">
+        <a id="footerFb" target="_blank" rel="noopener" title="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H16.7V3.6C16.4 3.56 15.4 3.47 14.3 3.47c-2.3 0-3.9 1.4-3.9 4V9.9H7.7V13h2.7v8h3.1z"/></svg>
+        </a>
+        <a id="footerInsta" target="_blank" rel="noopener" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.7 0 3.05.01 4.12.06 1.06.05 1.79.22 2.43.47a4.9 4.9 0 0 1 1.77 1.15 4.9 4.9 0 0 1 1.15 1.77c.25.64.42 1.37.47 2.43.05 1.07.06 1.42.06 4.12s-.01 3.05-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.64.25-1.37.42-2.43.47C15.05 21.99 14.7 22 12 22s-3.05-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.25-.64-.42-1.37-.47-2.43C2.01 15.05 2 14.7 2 12s.01-3.05.06-4.12c.05-1.06.22-1.79.47-2.43a4.9 4.9 0 0 1 1.15-1.77A4.9 4.9 0 0 1 5.45 2.53c.64-.25 1.37-.42 2.43-.47C8.95 2.01 9.3 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.4-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg>
+        </a>
+        <a id="footerTiktok" target="_blank" rel="noopener" title="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 2h-3.2v13.5a2.9 2.9 0 1 1-2.1-2.8V9.4a6.1 6.1 0 1 0 5.3 6V8.8a8.2 8.2 0 0 0 4.9 1.6V7.2a4.9 4.9 0 0 1-4.9-5.2z"/></svg>
+        </a>
+      </div>
+    </div>
 
-<script src="assets/js/products.js"></script>
-<script src="assets/js/include.js"></script>
-<script>
-  document.getElementById("featured-grid").innerHTML =
-    PRODUCTS.slice(0,4).map(productCardHTML).join("");
-</script>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#shop">All pieces</a></li>
+        <li><a href="#shop">Wearables & Accessories</a></li>
+        <li><a href="#shop">Bags</a></li>
+        <li><a href="#shop">Keychains & Charms</a></li>
+        <li><a href="#shop">Bouquets</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Get in touch</h4>
+      <ul>
+        <li><a id="footerWa" target="_blank" rel="noopener">WhatsApp us</a></li>
+        <li><a id="footerPhone"></a></li>
+        <li><a id="footerPathao" target="_blank" rel="noopener">Order via Pathao</a></li>
+        <li><a href="track.html">Track your order</a></li>
+        <li><a href="#reviews">Customer reviews</a></li>
+        <li><a href="#contact">Contact page</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Good to know</h4>
+      <ul>
+        <li><a href="#help">Made-to-order timeline</a></li>
+        <li><a href="#help">Return & exchange policy</a></li>
+        <li><a href="#help">Refund policy</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrap footer-bottom">
+    <div>© <span id="year"></span> Crochet by Neha. All rights reserved.</div>
+    <div>Handmade in Nepal, shipped everywhere.</div>
+  </div>
+</footer>
+
+<!-- ================= BOTTOM APP DOCK ================= -->
+<div class="app-dock">
+  <a id="dockWhatsapp" target="_blank" rel="noopener" title="WhatsApp" style="background:#25D36622">
+    <svg viewBox="0 0 32 32" fill="#25D366"><path d="M16 3C9 3 3.3 8.7 3.3 15.7c0 2.5.7 4.9 1.9 7L3 29l6.5-2.1c2 .9 4.2 1.4 6.5 1.4 7 0 12.7-5.7 12.7-12.7C28.7 8.7 23 3 16 3zm0 22.9c-2.1 0-4.1-.6-5.8-1.6l-.4-.2-4.1 1.3 1.3-4-.3-.4c-1.1-1.8-1.7-3.8-1.7-5.9C5 9.8 9.9 5 16 5s11 4.8 11 10.7C27 21.6 22.1 25.9 16 25.9zm5.9-8c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2s-.8 1.1-1 1.3-.4.3-.7.1c-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.3s0-.5.2-.7c.2-.2.3-.3.5-.6.2-.2.2-.4.3-.6.1-.2 0-.5 0-.6 0-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.3 1.4 3.5c.2.2 2.4 3.7 5.8 5.1.8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.3.2-1.5-.1-.1-.3-.2-.6-.4z"/></svg>
+  </a>
+  <a id="dockPhone" title="Call" style="background:#4a3c5c22">
+    <svg viewBox="0 0 24 24" fill="#4a3c5c"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"/></svg>
+  </a>
+  <a id="dockInsta" target="_blank" rel="noopener" title="Instagram" style="background:#E1306C22">
+    <svg viewBox="0 0 24 24" fill="#E1306C"><path d="M12 2c2.7 0 3.05.01 4.12.06 1.06.05 1.79.22 2.43.47a4.9 4.9 0 0 1 1.77 1.15 4.9 4.9 0 0 1 1.15 1.77c.25.64.42 1.37.47 2.43.05 1.07.06 1.42.06 4.12s-.01 3.05-.06 4.12c-.05 1.06-.22 1.79-.47 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.64.25-1.37.42-2.43.47C15.05 21.99 14.7 22 12 22s-3.05-.01-4.12-.06c-1.06-.05-1.79-.22-2.43-.47a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.25-.64-.42-1.37-.47-2.43C2.01 15.05 2 14.7 2 12s.01-3.05.06-4.12c.05-1.06.22-1.79.47-2.43a4.9 4.9 0 0 1 1.15-1.77A4.9 4.9 0 0 1 5.45 2.53c.64-.25 1.37-.42 2.43-.47C8.95 2.01 9.3 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.4-8.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg>
+  </a>
+  <a id="dockTiktok" target="_blank" rel="noopener" title="TikTok" style="background:#00000022">
+    <svg viewBox="0 0 24 24" fill="#111"><path d="M16.6 2h-3.2v13.5a2.9 2.9 0 1 1-2.1-2.8V9.4a6.1 6.1 0 1 0 5.3 6V8.8a8.2 8.2 0 0 0 4.9 1.6V7.2a4.9 4.9 0 0 1-4.9-5.2z"/></svg>
+  </a>
+  <a id="dockFb" target="_blank" rel="noopener" title="Facebook" style="background:#1877F222">
+    <svg viewBox="0 0 24 24" fill="#1877F2"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H16.7V3.6C16.4 3.56 15.4 3.47 14.3 3.47c-2.3 0-3.9 1.4-3.9 4V9.9H7.7V13h2.7v8h3.1z"/></svg>
+  </a>
+</div>
+
+<!-- ================= AI CHAT WIDGET ================= -->
+<button class="ai-launcher" id="aiLauncher" title="Ask Crochet by Neha AI">
+  <svg viewBox="0 0 24 24"><path d="M12 2a1 1 0 0 1 1 1v1.06A8 8 0 0 1 20 12h1a1 1 0 1 1 0 2h-1a8 8 0 0 1-7 7.94V23a1 1 0 1 1-2 0v-1.06A8 8 0 0 1 4 14H3a1 1 0 1 1 0-2h1a8 8 0 0 1 7-7.94V3a1 1 0 0 1 1-1zM9 12a1.5 1.5 0 1 0 3 0 1.5 1.5 0 0 0-3 0zm6 0a1.5 1.5 0 1 0 3 0 1.5 1.5 0 0 0-3 0z"/></svg>
+</button>
+<div class="ai-panel" id="aiPanel">
+  <div class="ai-head">
+    <div><strong>Crochet by Neha AI</strong><br /><span>Ask about pieces, prices, orders</span></div>
+    <button class="ai-close" id="aiClose">✕</button>
+  </div>
+  <div class="ai-messages" id="aiMessages"></div>
+  <div class="ai-input-row">
+    <input id="aiInput" type="text" placeholder="e.g. Can the ocean bag be made in pink?" />
+    <button id="aiSend">Send</button>
+  </div>
+</div>
+
+<script src="products.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
